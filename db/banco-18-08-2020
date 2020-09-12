@@ -1,0 +1,206 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Table `tb_pessoa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_pessoa` (
+  `id_pessoa` INT NOT NULL AUTO_INCREMENT,
+  `nome_pessoa` VARCHAR(65) NOT NULL,
+  `sobre_nome_pessoa` VARCHAR(65) NOT NULL,
+  `sexo_pessoa` CHAR(1) NOT NULL,
+  `data_nascimento_pessoa` DATE NOT NULL,
+  `dt_cadastro_pessoa` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_pessoa`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_user` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `email_usuario` VARCHAR(60) NOT NULL,
+  `senha_usuario` CHAR(60) NOT NULL,
+  `dt_cadastro_usuario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `in_admin` INT NOT NULL,
+  `in_habilitado` INT NOT NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  INDEX `fk_tb_user_tb_pessoa_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_user_tb_pessoa`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_nascionalidade`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_nascionalidade` (
+  `id_nascionalidade` INT NOT NULL AUTO_INCREMENT,
+  `nascionalidade` VARCHAR(60) NOT NULL,
+  `id_pessoa` INT NOT NULL,
+  `dt_cadastro_nascionalidade` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_nascionalidade`),
+  INDEX `fk_tb_nascionalidade_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_nascionalidade_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_fone`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_fone` (
+  `id_fone` INT NOT NULL AUTO_INCREMENT,
+  `ddd_fone` CHAR(2) NOT NULL,
+  `numero_fone` CHAR(9) NOT NULL,
+  `id_pessoa` INT NOT NULL,
+  `dt_cadastro_fone` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_fone`),
+  INDEX `fk_tb_fone_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_fone_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_endereco`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_endereco` (
+  `id_endereco` INT NOT NULL AUTO_INCREMENT,
+  `logradouro_endereco` VARCHAR(60) NOT NULL,
+  `complemento` VARCHAR(100) NULL,
+  `cidade_endereco` VARCHAR(45) NOT NULL,
+  `estado_endereco` VARCHAR(45) NOT NULL,
+  `cep_endereco` CHAR(8) NOT NULL,
+  `dt_cadastro_endereco` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_pessoa` INT NOT NULL,
+  `bairro_endereco` VARCHAR(45) NOT NULL,
+  `numero_endereco` CHAR(8) NOT NULL,
+  PRIMARY KEY (`id_endereco`),
+  INDEX `fk_tb_endereco_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_endereco_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_objetivo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_objetivo` (
+  `id_objetivo` INT NOT NULL AUTO_INCREMENT,
+  `dt_cadastro_objetivo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `descricao_objetivo` MEDIUMBLOB NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id_objetivo`),
+  INDEX `fk_tb_objetivo_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_objetivo_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_experiencias`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_experiencias` (
+  `id_experiencias` INT NOT NULL AUTO_INCREMENT,
+  `dt_cadastro_experiencias` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `empresa_experiencias` VARCHAR(100) NOT NULL,
+  `cargo_experiencias` VARCHAR(100) NOT NULL,
+  `inicio_experiencias` DATE NOT NULL,
+  `fim_experiencias` DATE NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id_experiencias`),
+  INDEX `fk_tb_experiencias_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_experiencias_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_formacao_academica`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_formacao_academica` (
+  `id_formacao_academica` INT NOT NULL AUTO_INCREMENT,
+  `dt_cadastro_formacao_academica` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `formacao_academica` MEDIUMBLOB NOT NULL,
+  `mes_formacao_academica` CHAR(2) NOT NULL,
+  `ano_formacao_academica` CHAR(4) NOT NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id_formacao_academica`),
+  INDEX `fk_tb_formacao_academica_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_formacao_academica_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_cursos_adicionais`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_cursos_adicionais` (
+  `id_cursos_adicionais` INT NOT NULL AUTO_INCREMENT,
+  `dt_cadastro_cursos_adicionais` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `descricao_cursos_adicionais` VARCHAR(255) NULL,
+  `titulo_cursos_adicionais` VARCHAR(100) NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id_cursos_adicionais`),
+  INDEX `fk_tb_cursos_adicionais_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_cursos_adicionais_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `tb_habilidades`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tb_habilidades` (
+  `id_habilidades` INT NOT NULL AUTO_INCREMENT,
+  `dt_cadastro_habilidades` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `habilidades` VARCHAR(500) NOT NULL,
+  `tb_habilidadescol` MEDIUMBLOB NOT NULL,
+  `id_pessoa` INT NOT NULL,
+  PRIMARY KEY (`id_habilidades`),
+  INDEX `fk_tb_habilidades_tb_pessoa1_idx` (`id_pessoa` ASC),
+  CONSTRAINT `fk_tb_habilidades_tb_pessoa1`
+    FOREIGN KEY (`id_pessoa`)
+    REFERENCES `tb_pessoa` (`id_pessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

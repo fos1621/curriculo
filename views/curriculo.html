@@ -1,0 +1,54 @@
+<div class="page-1">
+
+	<div class="nome-pessoa-1">
+		<h1>{$pessoa.nomepessoa} {$pessoa.sobrenomepessoa}</h1>
+		<div class="centralize hr-1">
+			<hr>			
+		</div>
+	</div>
+
+	<div class="dados-pessoais-1">
+		<h2>Dados pessoais:</h2>
+		<div class="row">
+			<div class="col-6">
+				<p><b>Nascionalidade: </b>{$nascionalidade.nascionalidade}</p>
+				<p><b>Bairro: </b>{$endereco.bairro_endereco}</p>
+				<p><b>Cidade: </b>{$endereco.cidade_endereco}</p>
+				<p><b>Estado civil: </b>{if="$pessoa.estado_civil == 'Selecione'"} {else}{$pessoa.estado_civil}{/if}</p>
+			</div>
+			<div class="col-6">
+				<p><b>Endereço: </b>{$endereco.logradouro_endereco}</p>
+				<p><b>Data de nascimento: </b>{$pessoa.datanascimentopessoa}</p>
+				<p><b>Celular/Telefone: </b>({$telefone.ddd_fone}) {$telefone.numero_fone}</p>
+				<p><b>Email: </b>{$pessoa.emailusuario}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="area-interesse-1">
+		<div class="centralize hr-1">
+			<hr>			
+		</div>
+
+		<h2>Área de interesse:</h2>
+
+		<div class="row">
+			<div class="col-12">
+				<p>{$areaInteresse.area_interesse}</p>				
+			</div>
+		</div>
+	</div>
+
+	<div class="formacao-academica-1">
+		<div class="centralize hr-1">
+			<hr>			
+		</div>
+
+		<h2>Formação acadêmica</h2>
+
+		<div class="row">
+			<p><b>{$conclusao}: </b>{$formacaoDescricao} / {$formacaoAcademica.instituicao} / {$formacaoAcademica.ano_formacao_academica} </p>
+		</div>
+	</div>
+
+</div>

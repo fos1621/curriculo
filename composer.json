@@ -13,8 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Curri\\": "vendor\\curri\\php-classes\\src"
-            
+            "Curri\\": "vendor\\curri\\php-classes\\src"            
         }
     }
 }
