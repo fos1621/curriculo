@@ -41,7 +41,20 @@ class Telefone extends Model{
 			":id_pessoa"=>Login::getSessionUserId()
 		));
 
-		$this->setData($results[0]);
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Telefone cadastrado com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao cadastrar telefone.');
+			header('Location: /telefone');
+			exit;
+
+		}
 
 	}
 
@@ -56,10 +69,20 @@ class Telefone extends Model{
 			":id_pessoa"=>Login::getSessionUserId()
 		));
 
-		// var_dump($results);
-		// exit;
+		if(count($results[0]) > 0){
 
-		$this->setData($results[0]);
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Telefone alterado com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao alterar dados do telefone.');
+			header('Location: /telefone');
+			exit;
+
+		}
 
 	}
 

@@ -3,7 +3,7 @@
 		swal({
 			title: "{$getMessageDadosPessoaisSucesso}",
 		  	text: '',
-		  	icon: "Sucesso",
+		  	icon: "success",
 		});
 	</script>
 {/if}
@@ -13,7 +13,7 @@
 		swal({
 			title: "{$getMessageDadosPessoaisAlterarSucesso}",
 		  	text: '',
-		  	icon: "Sucesso",
+		  	icon: "success",
 		});
 	</script>
 {/if}
@@ -23,7 +23,27 @@
 		swal({
 			title: "{$getMessageEnderecoSucesso}",
 		  	text: '',
-		  	icon: "Sucesso",
+		  	icon: "success",
+		});
+	</script>
+{/if}
+
+{if="$mensagemTelefoneSucesso != ''"}
+	<script>
+		swal({
+			title: "{$mensagemTelefoneSucesso}",
+		  	text: '',
+		  	icon: "success",
+		});
+	</script>
+{/if}
+
+{if="$mensagemNascionalidadeSucesso != ''"}
+	<script>
+		swal({
+			title: "{$mensagemNascionalidadeSucesso}",
+		  	text: '',
+		  	icon: "success",
 		});
 	</script>
 {/if}

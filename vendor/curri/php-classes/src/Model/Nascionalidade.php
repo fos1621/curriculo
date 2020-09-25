@@ -35,7 +35,20 @@ class Nascionalidade extends Model{
 			":id_pessoa"=>Login::getSessionUserId()
 		));
 
-		$this->setData($results[0]);
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Nacionalidade cadastrado com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao cadastrar nacionalidade.');
+			header('Location: /nascionalidade');
+			exit;
+
+		}
 
 	}
 
@@ -49,7 +62,20 @@ class Nascionalidade extends Model{
 			":id_pessoa"=>Login::getSessionUserId()
 		));
 
-		$this->setData($results[0]);
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Nacionalidade alterado com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao alterar a nacionalidade.');
+			header('Location: /nascionalidade');
+			exit;
+
+		}
 
 	}
 

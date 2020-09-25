@@ -96,7 +96,7 @@ class Endereco extends Model{
 
 			$this->setData($results[0]);
 			Message::setMessegeSucessoEndereco('Endereço cadastrado com sucesso.');
-			header('Location: /criar-curriculo');
+			header('Location: /endereco');
 			exit;
 
 		}else{
@@ -130,16 +130,17 @@ class Endereco extends Model{
 			":bairro_endereco"=>utf8_encode($_POST['bairro_endereco']),
 			":numero_endereco"=>$_POST['numero_endereco']
 		));
+
 		if(count($results[0]) > 0){
 
 			$this->setData($results[0]);
-			Message::setMessegeSucessoEndereco('Endereço cadastrado com sucesso.');
+			Message::setMessegeSucessoEndereco('Endereço alterado com sucesso.');
 			header('Location: /criar-curriculo');
 			exit;
 
 		}else{
 
-			Message::setMessegeErrorEndereco('Erro ao cadastrar endereço.');
+			Message::setMessegeErrorEndereco('Erro ao alterar dados do endereço.');
 			header('Location: /endereco');
 			exit;
 

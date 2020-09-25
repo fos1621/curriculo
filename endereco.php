@@ -68,60 +68,60 @@ $app->post('/checkout-cep', function(){
 
 });
 
-// $app->post('/checkout-cep-up', function(){
+$app->post('/checkout-cep-up', function(){
 
-// 	Login::verifyLogin(false);
+	Login::verifyLogin(false);
 
-// 	if(!isset($_POST['cep_endereco']) || $_POST['cep_endereco'] == ''){
+	if(!isset($_POST['cep_endereco']) || $_POST['cep_endereco'] == ''){
 
-// 		Message::setMessegeErrorEndereco('Informe o CEP.');
-// 		header('Location: /endereco');
-// 		exit;
+		Message::setMessegeErrorEndereco('Informe o CEP.');
+		header('Location: /endereco');
+		exit;
 
-// 	}
+	}
 
-// 	if(!isset($_POST['logradouro_endereco']) || $_POST['logradouro_endereco'] == ''){
+	if(!isset($_POST['logradouro_endereco']) || $_POST['logradouro_endereco'] == ''){
 
-// 		Message::setMessegeErrorEndereco('Informe o logradouro.');
-// 		header('Location: /endereco');
-// 		exit;
+		Message::setMessegeErrorEndereco('Informe o logradouro.');
+		header('Location: /endereco');
+		exit;
 
-// 	}
+	}
 
-// 	if(!isset($_POST['cidade_endereco']) || $_POST['cidade_endereco'] == ''){
+	if(!isset($_POST['cidade_endereco']) || $_POST['cidade_endereco'] == ''){
 
-// 		Message::setMessegeErrorEndereco('Informe a cidade.');
-// 		header('Location: /endereco');
-// 		exit;
+		Message::setMessegeErrorEndereco('Informe a cidade.');
+		header('Location: /endereco');
+		exit;
 
-// 	}
+	}
 
-// 	if(!isset($_POST['estado_endereco']) || $_POST['estado_endereco'] == ''){
+	if(!isset($_POST['estado_endereco']) || $_POST['estado_endereco'] == ''){
 
-// 		Message::setMessegeErrorEndereco('Informe o estado.');
-// 		header('Location: /endereco');
-// 		exit;
+		Message::setMessegeErrorEndereco('Informe o estado.');
+		header('Location: /endereco');
+		exit;
 
-// 	}
+	}
 
-// 	if(!isset($_POST['bairro_endereco']) || $_POST['bairro_endereco'] == ''){
+	if(!isset($_POST['bairro_endereco']) || $_POST['bairro_endereco'] == ''){
 
-// 		Message::setMessegeErrorEndereco('Informe o bairro.');
-// 		header('Location: /endereco');
-// 		exit;
+		Message::setMessegeErrorEndereco('Informe o bairro.');
+		header('Location: /endereco');
+		exit;
 
-// 	}
+	}
 
-// 	Endereco::loadFromCEP($_POST['cep_endereco']);
+	Endereco::loadFromCEP($_POST['cep_endereco']);
 
-// 	$endereco = new Endereco();
+	$endereco = new Endereco();
 
-// 	$endereco->updateEndereco();
+	$endereco->updateEndereco();
 
-// 	header('Location: /criar-curriculo');
-// 	exit;
+	header('Location: /criar-curriculo');
+	exit;
 
-// });
+});
 
 // $app->post('/pesquisa-cep', function(){
 

@@ -10,13 +10,29 @@
 	<br class="clear">
 	<br class="clear">
 
+
+
+	{if="$mensagemErroNascionalidade != ''"}
+		<script>
+			swal({
+				title: "{$mensagemErroNascionalidade}",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+
+	<br class="clear">
+	<br class="clear">
+
 	
 	{if="$nasc['id_pessoa'] == $idPessoa && $nasc !== NULL"}
 	<div class="cad-dados-pessoas">
 		<form role="form" action="/nascionalidade-up" method="post">
 		  	<div class="form-group">
 			    <label for="nascionalidade">Nascionalidade</label>
-			    <input type="text" class="form-control" value="{$nasc.nascionalidade}" id="nascionalidade" name="nascionalidade">
+			    <input type="text" class="form-control" value="{$nasc.nascionalidade}" id="nascionalidade" name="nascionalidade" required autofocus>
 		  	</div>
 		  	
 		  	<button type="submit" class="btn btn-primary">Salvar</button>
@@ -28,7 +44,7 @@
 		<form role="form" action="/nascionalidade" method="post">
 		  	<div class="form-group">
 			    <label for="nascionalidade">Nascionalidade</label>
-			    <input type="text" class="form-control" value="{$nasc.nascionalidade}" id="nascionalidade" name="nascionalidade">
+			    <input type="text" class="form-control" value="{$nasc.nascionalidade}" id="nascionalidade" name="nascionalidade" required autofocus>
 		  	</div>
 
 		  	<button type="submit" class="btn btn-primary">Salvar</button>

@@ -10,16 +10,40 @@
 	<br class="clear">
 	<br class="clear">
 
+	{if="$mensagemErroDDD != ''"}
+		<script>
+			swal({
+				title: "{$mensagemErroDDD}",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$mensagemErroNumeroTelefone != ''"}
+		<script>
+			swal({
+				title: "{$mensagemErroNumeroTelefone}",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+
+	<br class="clear">
+	<br class="clear">
+
 	{if="$telefone['id_pessoa'] == $idPessoa && $telefone !== NULL"}
 	<div class="cad-dados-pessoas">
 		<form role="form" action="/telefone-up" method="post">
 		  	<div class="form-group">
 			    <label for="ddd_fone">DDD</label>
-			    <input type="text" class="form-control" value="{$telefone.ddd_fone}" id="ddd_fone" name="ddd_fone">
+			    <input type="text" class="form-control" value="{$telefone.ddd_fone}" id="ddd_fone" name="ddd_fone" required autofocus>
 		  	</div>
 		  	<div class="form-group">
 			    <label for="numero_fone">Celular ou Telefone </label>
-			    <input type="text" class="form-control" value="{$telefone.numero_fone}" id="numero_fone" name="numero_fone">
+			    <input type="text" class="form-control" value="{$telefone.numero_fone}" id="numero_fone" name="numero_fone" required >
 		  	</div>
 		  	<!-- <div class="form-group">
 			    <label for="numero_fone">Celular ou Telefone (com ddd)</label>
@@ -37,11 +61,11 @@
 		<form role="form" action="/telefone" method="post">
 		  	<div class="form-group">
 			    <label for="ddd_fone">DDD</label>
-			    <input type="text" class="form-control" value="{$telefone.ddd_fone}" id="ddd_fone" name="ddd_fone">
+			    <input type="text" class="form-control" value="{$telefone.ddd_fone}" id="ddd_fone" name="ddd_fone" required autofocus>
 		  	</div>
 		  	<div class="form-group">
 			    <label for="numero_fone">Celular ou Telefone</label>
-			    <input type="text" class="form-control" value="{$telefone.numero_fone}" id="numero_fone" name="numero_fone">
+			    <input type="text" class="form-control" value="{$telefone.numero_fone}" id="numero_fone" name="numero_fone" required>
 		  	</div>
 		  	<!-- <div class="form-group">
 			    <label for="numero_fone">Celular ou Telefone (com ddd)</label>

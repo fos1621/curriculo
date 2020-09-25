@@ -10,6 +10,30 @@
 	<br class="clear">
 	<br class="clear">
 
+	<?php if( $mensagemErroDDD != '' ){ ?>
+		<script>
+			swal({
+				title: "<?php echo htmlspecialchars( $mensagemErroDDD, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	<?php if( $mensagemErroNumeroTelefone != '' ){ ?>
+		<script>
+			swal({
+				title: "<?php echo htmlspecialchars( $mensagemErroNumeroTelefone, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+
+	<br class="clear">
+	<br class="clear">
+
 	<?php if( $telefone['id_pessoa'] == $idPessoa && $telefone !== NULL ){ ?>
 	<div class="cad-dados-pessoas">
 		<form role="form" action="/telefone-up" method="post">

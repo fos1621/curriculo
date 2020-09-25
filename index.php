@@ -63,6 +63,8 @@ $app->get("/criar-curriculo", function(){
 	$getMessageDadosPessoaisSucesso = Message::getMessageSucessoPessoa();
 	$getMessageDadosPessoaisAlterarSucesso = Message::getMessageSucessoPessoa();
 	$getMessageEnderecoSucesso = Message::getMessageSucessoEndereco();
+	$mensagemTelefoneSucesso = Message::getMessegeSucesso();
+	$mensagemNascionalidadeSucesso = Message::getMessegeSucesso();
 
 	$page = new Page();
 
@@ -71,7 +73,9 @@ $app->get("/criar-curriculo", function(){
 		'iduser'=>$idUser,
 		'getMessageDadosPessoaisSucesso'=>$getMessageDadosPessoaisSucesso,
 		'getMessageEnderecoSucesso'=>$getMessageEnderecoSucesso,
-		'getMessageDadosPessoaisAlterarSucesso'=>$getMessageDadosPessoaisAlterarSucesso
+		'getMessageDadosPessoaisAlterarSucesso'=>$getMessageDadosPessoaisAlterarSucesso,
+		'mensagemTelefoneSucesso'=>$mensagemTelefoneSucesso,
+		'mensagemNascionalidadeSucesso'=>$mensagemNascionalidadeSucesso
 	]);
 
 });

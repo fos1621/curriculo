@@ -3,7 +3,7 @@
 		swal({
 			title: "<?php echo htmlspecialchars( $getMessageDadosPessoaisSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
 		  	text: '',
-		  	icon: "Sucesso",
+		  	icon: "success",
 		});
 	</script>
 <?php } ?>
@@ -13,7 +13,7 @@
 		swal({
 			title: "<?php echo htmlspecialchars( $getMessageDadosPessoaisAlterarSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
 		  	text: '',
-		  	icon: "Sucesso",
+		  	icon: "success",
 		});
 	</script>
 <?php } ?>
@@ -23,7 +23,27 @@
 		swal({
 			title: "<?php echo htmlspecialchars( $getMessageEnderecoSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
 		  	text: '',
-		  	icon: "Sucesso",
+		  	icon: "success",
+		});
+	</script>
+<?php } ?>
+
+<?php if( $mensagemTelefoneSucesso != '' ){ ?>
+	<script>
+		swal({
+			title: "<?php echo htmlspecialchars( $mensagemTelefoneSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+		  	text: '',
+		  	icon: "success",
+		});
+	</script>
+<?php } ?>
+
+<?php if( $mensagemNascionalidadeSucesso != '' ){ ?>
+	<script>
+		swal({
+			title: "<?php echo htmlspecialchars( $mensagemNascionalidadeSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+		  	text: '',
+		  	icon: "success",
 		});
 	</script>
 <?php } ?>
