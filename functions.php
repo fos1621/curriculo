@@ -7,6 +7,7 @@ use \Curri\Model\Login;
 function formatDate($date){
 
 	$myDate = date("d-m-Y", strtotime($date));
+	$myDate = str_replace("-", " / ", $myDate);
 
 	return $myDate;
 }

@@ -1,22 +1,35 @@
-{if="$areaInteresse['id_pessoa'] == $idPessoa && $areaInteresse !== NULL"}
-<div class="cad-dados-pessoas">
-	<form role="form" action="/area-interesse-up" method="post">
-	  	<div class="form-group">
-		    <label for="area_interesse">Área de interesse</label>
-		    <input type="text" class="form-control" value="{$areaInteresse.area_interesse}" id="area_interesse" name="area_interesse">
-	  	</div>
-	  	<button type="submit" class="btn btn-primary">Salvar</button>
-	</form>
+<div class="wrapper">
+	<div class="bread">
+		<div class="breadCrumb">
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Área de interesse</p></span>
+		</div>
+		<div class="bread-title">
+			<h1>Área de interesse</h1>
+		</div>
+	</div>
+	<br class="clear">
+	<br class="clear">
+	
+	{if="$areaInteresse['id_pessoa'] == $idPessoa && $areaInteresse !== NULL"}
+	<div class="cad-dados-pessoas">
+		<form role="form" action="/area-interesse-up" method="post">
+		  	<div class="form-group">
+			    <label for="area_interesse">Área de interesse</label>
+			    <input type="text" class="form-control" value="{$areaInteresse.area_interesse}" id="area_interesse" name="area_interesse">
+		  	</div>
+		  	<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
+	</div>
+	{else}
+							
+	<div class="cad-dados-pessoas">
+		<form role="form" action="/area-interesse" method="post">
+		  	<div class="form-group">
+			    <label for="area_interesse">Área de interesse</label>
+			    <input type="text" class="form-control" value="{$areaInteresse.area_interesse}" id="area_interesse" name="area_interesse">
+		  	</div>
+		  	<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
+	</div>
+	{/if}
 </div>
-{else}
-						
-<div class="cad-dados-pessoas">
-	<form role="form" action="/area-interesse" method="post">
-	  	<div class="form-group">
-		    <label for="area_interesse">Área de interesse</label>
-		    <input type="text" class="form-control" value="{$areaInteresse.area_interesse}" id="area_interesse" name="area_interesse">
-	  	</div>
-	  	<button type="submit" class="btn btn-primary">Salvar</button>
-	</form>
-</div>
-{/if}

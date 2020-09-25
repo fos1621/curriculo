@@ -1,14 +1,49 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="utf-8">
-	<title>Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="res/css/style.css">	
-</head>
-<body>
-	<div class="cad-dados-pessoas">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("topo-inicio");?>
+
+
+	<?php if( $messegeErrorUsuarioInexistente != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messegeErrorUsuarioInexistente, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	<?php if( $messegeErrorPreenchaEmailUsuario != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messegeErrorPreenchaEmailUsuario, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+	
+	<?php if( $messegeErrorPreenchaSenha != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messegeErrorPreenchaSenha, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+	
+	<?php if( $messegeSucessoUsuarioCadastrado != '' ){ ?>
+		<script>
+			swal({
+				title: "Parabéns!",
+			  	text: '<?php echo htmlspecialchars( $messegeSucessoUsuarioCadastrado, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "success",
+			});
+		</script>
+	<?php } ?>
+
+
+
+	<div class="cad-login col-m-12">
 		<form role="form" action="/login" method="post">
 		  <div class="form-group">
 		    <label for="emailusuario">Email ou Usuário</label>
@@ -18,34 +53,12 @@
 		    <label for="senhausuario">Senha</label>
 		    <input type="password" class="form-control" id="senhausuario" name="senhausuario" required>
 		  </div>
-		  <!-- <div class="form-group">
-		    <label for="nomepessoa">Nome</label>
-		    <input type="text" class="form-control" id="nomepessoa" name="nomepessoa" required>
-		  </div>
-		  <div class="form-group">
-		    <label for="sobrenomepessoa">Sobrenome</label>
-		    <input type="text" class="form-control" id="sobrenomepessoa" name="sobrenomepessoa" required>
-		  </div>
-		  <div class="form-group">
-		    <label for="datanascimentopessoa">Data de nascimento</label>
-		    <input type="date" class="form-control" id="datanascimentopessoa" name="datanascimentopessoa" required>
-		  </div>
-		  <div class="form-check">
-			  <input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="M">
-			  <label class="form-check-label" for="exampleRadios1">
-			    Masculino
-			  </label>
-			</div>
-			<div class="form-check">
-			  <input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="F">
-			  <label class="form-check-label" for="exampleRadios2">
-			    Feminino
-			  </label>
-			</div> -->
 		  
-		  <button type="submit" class="btn btn-primary">Entrar</button>
-		  <a class="btn btn-primary" href="/cadastro" role="button">Cadastre-se</a>
-		  <a class="btn btn-secondary btn-lg" href="/cadastro" role="button">Esqueceu a senha</a>
+		  <button type="submit" class="btn-login-1">Entrar</button>
+		  <div class="btns-login">
+		  	<a class="btn-login-2" href="/cadastro" role="button">Cadastre-se</a>
+		  </div>
+		  <a class="btn-login-3" href="/cadastro" role="button">Esqueceu a senha?</a>
 		</form>
 	</div>
 

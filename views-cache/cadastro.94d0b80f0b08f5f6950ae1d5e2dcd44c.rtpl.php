@@ -1,60 +1,83 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="utf-8">
-	<title>Cadastrar</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="res/css/style.css">	
-</head>
-<body>
-	<div class="cad-dados-pessoas">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("topo-inicio");?>
+
+	<?php if( $messageErroCadastroUsuarioExistente != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messageErroCadastroUsuarioExistente, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	<?php if( $messageErroCadastroPreenchaUsuario != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messageErroCadastroPreenchaUsuario, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	<?php if( $messageErroCadastroPreenchaEmail != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messageErroCadastroPreenchaEmail, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	<?php if( $messageErroCadastroPreenchaSenha != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messageErroCadastroPreenchaSenha, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	<?php if( $messageErroCadastroCadastrarusuario != '' ){ ?>
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '<?php echo htmlspecialchars( $messageErroCadastroCadastrarusuario, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+	
+
+	<div class="cad-cadastro">
 		<form role="form" action="/cadastro" method="post">
 		  <div class="form-group">
 		    <label for="nomeusuario">Nome de usuário</label>
-		    <input type="text" class="form-control" id="nomeusuario" name="nomeusuario" required autofocus>
+		    <input type="text" class="form-control" id="nomeusuario" name="nomeusuario"  autofocus>
 		  </div>
 		  <div class="form-group">
 		    <label for="emailusuario">Email</label>
-		    <input type="email" class="form-control" id="emailusuario" name="emailusuario" required>
+		    <input type="email" class="form-control" id="emailusuario" name="emailusuario" >
 		  </div>
 		  <div class="form-group">
 		    <label for="senhausuario">Senha</label>
-		    <input type="password" class="form-control" id="senhausuario" name="senhausuario" required>
+		    <input type="password" class="form-control" id="senhausuario" name="senhausuario" >
 		  </div>
-		  <!-- <div class="form-group">
-		    <label for="nomepessoa">Nome</label>
-		    <input type="text" class="form-control" id="nomepessoa" name="nomepessoa" required>
-		  </div>
-		  <div class="form-group">
-		    <label for="sobrenomepessoa">Sobrenome</label>
-		    <input type="text" class="form-control" id="sobrenomepessoa" name="sobrenomepessoa" required>
-		  </div>
-		  <div class="form-group">
-		    <label for="datanascimentopessoa">Data de nascimento</label>
-		    <input type="date" class="form-control" id="datanascimentopessoa" name="datanascimentopessoa" required>
-		  </div>
-		  <div class="form-check">
-			  <input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="M">
-			  <label class="form-check-label" for="exampleRadios1">
-			    Masculino
-			  </label>
-			</div>
-			<div class="form-check">
-			  <input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="F">
-			  <label class="form-check-label" for="exampleRadios2">
-			    Feminino
-			  </label>
-			</div> -->
 		  
-		  <button type="submit" class="btn btn-primary">Submit</button>
+		  <button type="submit" id="btn-cadastrar" class="btn-login-1">Cadastrar</button>
 		</form>
 	</div>
 
 	<footer>
 		<script src="res/bootstrap/js/bootstrap.min.js"></script>
 		<script src="res/js/script.js"></script>
+		
 		<script src="res/js/jquery.js"></script>
+		
+
 	</footer>
 </body>
 </html>

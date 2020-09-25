@@ -16,7 +16,7 @@ class FormacaoAcademica extends Model{
 			INNER JOIN tb_formacao_academica b
 			ON a.id_usuario = b.id_pessoa
 			WHERE a.id_usuario = :id", array(
-			":id"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":id"=>Login::getSessionUserId()
 		));
 		// var_dump(count($results) === 0);
 		// exit;
@@ -34,13 +34,14 @@ class FormacaoAcademica extends Model{
 
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_salvar_formacao_academica(:formacao_academica, :ano_formacao_academica, :id_pessoa, :instituicao, :conclusao)",
+		$results = $sql->select("CALL sp_salvar_formacao_academica(:formacao_academica, :ano_formacao_academica, :id_pessoa, :instituicao, :conclusao, :inicio_formacao_academica)",
 			array(
 			":formacao_academica"=>utf8_decode($_POST['formacao_academica']),
 			":ano_formacao_academica"=>$_POST['ano_formacao_academica'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"],
+			":id_pessoa"=>Login::getSessionUserId(),
 			":instituicao"=>utf8_decode($_POST['instituicao']),
-			":conclusao"=>utf8_decode($_POST['conclusao'])
+			":conclusao"=>utf8_decode($_POST['conclusao']),
+			":inicio_formacao_academica"=>$_POST['inicio_formacao_academica']
 		));
 
 		$this->setData($results[0]);
@@ -51,13 +52,14 @@ class FormacaoAcademica extends Model{
 
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_up_formacao_academica(:formacao_academica, :ano_formacao_academica, :id_pessoa, :instituicao, :conclusao)",
+		$results = $sql->select("CALL sp_up_formacao_academica(:formacao_academica, :ano_formacao_academica, :id_pessoa, :instituicao, :conclusao, :inicio_formacao_academica)",
 			array(
 			":formacao_academica"=>utf8_decode($_POST['formacao_academica']),
 			":ano_formacao_academica"=>$_POST['ano_formacao_academica'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"],
+			":id_pessoa"=>Login::getSessionUserId(),
 			":instituicao"=>utf8_decode($_POST['instituicao']),
-			":conclusao"=>utf8_decode($_POST['conclusao'])
+			":conclusao"=>utf8_decode($_POST['conclusao']),
+			":inicio_formacao_academica"=>$_POST['inicio_formacao_academica']
 		));
 
 		// var_dump($results);

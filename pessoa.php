@@ -1,9 +1,9 @@
 <?php 
 
 use \Curri\Page;
-use \Curri\Model\DadosPessoa;
-use \Curri\Model\Message;
 use \Curri\Model\Login;
+use \Curri\Model\Message;
+use \Curri\Model\DadosPessoa;
 
 
 $app->get("/dados-pessoais", function(){
@@ -12,20 +12,29 @@ $app->get("/dados-pessoais", function(){
 
 	$pessoa = new DadosPessoa();
 
-	$dadosPessoa = $pessoa->procuraPessoa();
+	$dadosPessoa = DadosPessoa::procuraPessoa();
 	
-	$idUser = $_SESSION[Login::SESSION]['id_usuario'];
+	$idUser = Login::getSessionUserId();
 
-	// var_dump($dadosPessoa['estado_civil']);
-	// var_dump($dadosPessoa['sexopessoa']);
-	// exit;
+	$getMessageDadosPessoaisError = Message::getMessageErrorPessoa();
+	$getMessageDadosPessoaisErrorAlterar = Message::getMessageErrorPessoa();
+	$getMessageDadosPessoaisErrorNome = Message::getMessageErrorPessoa();
+	$getMessageDadosPessoaisErrorSobreNome = Message::getMessageErrorPessoa();
+	$getMessageDadosPessoaisErrorSexoPessoa = Message::getMessageErrorPessoa();
+	$getMessageDadosPessoaisErrorEstadoCivil = Message::getMessageErrorPessoa();
+
 
 	$page = new Page();
 
 	$page->setTpl('/dados-pessoais', [
 		'dadosP'=>$dadosPessoa,
 		'iduser'=>$idUser,
-		'error'=>Message::getMessageError()
+		'getMessageDadosPessoaisError'=>$getMessageDadosPessoaisError,
+		'getMessageDadosPessoaisErrorAlterar'=>$getMessageDadosPessoaisErrorAlterar,
+		'getMessageDadosPessoaisErrorNome'=>$getMessageDadosPessoaisErrorNome,
+		'getMessageDadosPessoaisErrorSobreNome'=>$getMessageDadosPessoaisErrorSobreNome,
+		'getMessageDadosPessoaisErrorSexoPessoa'=>$getMessageDadosPessoaisErrorSexoPessoa,
+		'getMessageDadosPessoaisErrorEstadoCivil'=>$getMessageDadosPessoaisErrorEstadoCivil
 	]);
 
 });
@@ -34,21 +43,39 @@ $app->post("/dados-pessoais", function(){
 
 	Login::verifyLogin(false);
 
+	if(!isset($_POST['nomepessoa']) || $_POST['nomepessoa'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu nome.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
+	if(!isset($_POST['sobrenomepessoa']) || $_POST['sobrenomepessoa'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu sobrenome.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
+	if(!isset($_POST['sexopessoa']) || $_POST['sexopessoa'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu sexo.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
+	if(!isset($_POST['estado_civil']) || $_POST['estado_civil'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu estado civil.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
 	$pessoa = new DadosPessoa();
-
-	$dadosPessoa = $pessoa->procuraPessoa();
-
-	// if($dadosPessoa === NULL){
-
-	// 	if(isset($_POST['nomepessoa']) || $_POST['nomepessoa'] === ''){
-
-	// 		Message::setMessageError('Informe seu nome.');
-	// 		header('Location: /dados-pessoais');
-	// 		exit;
-
-	// 	}
-
-	// }
 
 	$pessoa->save();
 
@@ -61,11 +88,39 @@ $app->post("/dados-pessoais/up", function(){
 
 	Login::verifyLogin(false);
 
+	if(!isset($_POST['nomepessoa']) || $_POST['nomepessoa'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu nome.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
+	if(!isset($_POST['sobrenomepessoa']) || $_POST['sobrenomepessoa'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu sobrenome.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
+	if(!isset($_POST['sexopessoa']) || $_POST['sexopessoa'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu sexo.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
+	if(!isset($_POST['estado_civil']) || $_POST['estado_civil'] == ''){
+
+		Message::setMessegeErrorEndereco('Informe seu estado civil.');
+		header('Location: /endereco');
+		exit;
+
+	}
+
 	$pessoa = new DadosPessoa();
-
-
-	// var_dump($_POST);
-	// exit;
 
 	$pessoa->updatePessoa();
 

@@ -31,7 +31,7 @@ $app->post('/nascionalidade', function(){
 
 	$nascionalidade->save();
 
-	header('Location: /nascionalidade');
+	header('Location: /criar-curriculo');
 	exit;
 
 });
@@ -44,7 +44,7 @@ $app->post('/nascionalidade-up', function(){
 
 	$nascionalidade->updateNascionalidade();
 
-	header('Location: /nascionalidade');
+	header('Location: /criar-curriculo');
 	exit;
 
 });

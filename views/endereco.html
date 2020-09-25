@@ -1,76 +1,151 @@
-{if="$endereco['id_pessoa'] == $idPessoa && $endereco !== NULL"}
-<div class="cad-dados-pessoas">
-	<form role="form" action="/checkout-cep-up" method="post">
-	  	<div class="form-group">
-		    <label for="cep_endereco">CEP</label>
-		    <input type="text" placeholder="00000-000" value="{$endereco.cep_endereco}" class="form-control" id="cep_endereco" name="cep_endereco" autofocus required>
-	  	</div>
-        <input type="submit" value="Atualizar CEP" class="button alt" formaction="/checkout-cep-up" formmethod="post">
+<div class="wrapper">
+	<div class="bread">
+		<div class="breadCrumb">
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Endereço</p></span>
+		</div>
+		<div class="bread-title">
+			<h1>Endereço</h1>
+		</div>
+	</div>
+	<br class="clear">
+	<br class="clear">
 
-	  	<div class="form-group">
-		    <label for="logradouro_endereco">Logradouro</label>
-		    <input type="text" class="form-control" value="{$endereco.logradouro_endereco}" id="logradouro_endereco" name="logradouro_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="complemento">Complemento</label>
-		    <input type="text" class="form-control" value="{$endereco.complemento}" id="complemento" name="complemento">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="cidade_endereco">Cidade</label>
-		    <input type="text" class="form-control" value="{$endereco.cidade_endereco}" id="cidade_endereco" name="cidade_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="estado_endereco">Estado</label>
-		    <input type="text" class="form-control" value="{$endereco.estado_endereco}" id="estado_endereco" name="estado_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="bairro_endereco">Bairro</label>
-		    <input type="text" class="form-control" value="{$endereco.bairro_endereco}" id="bairro_endereco" name="bairro_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="numero_endereco">Número</label>
-		    <input type="text" class="form-control" value="{$endereco.numero_endereco}" id="numero_endereco" name="numero_endereco">
-	  	</div>
-	  	
-	  	<button type="submit" class="btn btn-primary">Salvar</button>
-	</form>
+	
+
+	{if="$messageErroEnderecoInformeCepValido != ''"}
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '{$messageErroEnderecoInformeCepValido}',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$messageErroEnderecoErroCadastro != ''"}
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '{$messageErroEnderecoErroCadastro}',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$messageErroEnderecoInformeLogradouro != ''"}
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '{$messageErroEnderecoInformeLogradouro}',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$messageErroEnderecoInformeCidade != ''"}
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '{$messageErroEnderecoInformeCidade}',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$messageErroEnderecoInformeEstado != ''"}
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '{$messageErroEnderecoInformeEstado}',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$messageErroEnderecoInformeBairro != ''"}
+		<script>
+			swal({
+				title: "Algo não está certo!",
+			  	text: '{$messageErroEnderecoInformeBairro}',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+	{if="$endereco['id_pessoa'] == $idPessoa && $endereco !== NULL"}
+	<div class="cad-dados-pessoas">
+		<form role="form" action="/checkout-cep-up" method="post">
+		  	<div class="form-group">
+			    <label for="cep_endereco">CEP</label>
+			    <input type="text" placeholder="00000-000" value="{$endereco.cep_endereco}" class="form-control" id="cep_endereco" name="cep_endereco" autofocus required>
+		  	</div>
+	        <input type="submit" value="Atualizar CEP" class="meu-btn" formaction="/checkout-cep-up" formmethod="post">
+
+		  	<div class="form-group">
+			    <label for="logradouro_endereco">Logradouro</label>
+			    <input type="text" class="form-control" value="{$endereco.logradouro_endereco}" id="logradouro_endereco" name="logradouro_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="complemento">Complemento</label>
+			    <input type="text" class="form-control" value="{$endereco.complemento}" id="complemento" name="complemento">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="cidade_endereco">Cidade</label>
+			    <input type="text" class="form-control" value="{$endereco.cidade_endereco}" id="cidade_endereco" name="cidade_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="estado_endereco">Estado</label>
+			    <input type="text" class="form-control" value="{$endereco.estado_endereco}" id="estado_endereco" name="estado_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="bairro_endereco">Bairro</label>
+			    <input type="text" class="form-control" value="{$endereco.bairro_endereco}" id="bairro_endereco" name="bairro_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="numero_endereco">Número</label>
+			    <input type="text" class="form-control" value="{$endereco.numero_endereco}" id="numero_endereco" name="numero_endereco">
+		  	</div>
+		  	
+		  	<button type="submit" class="btn btn-primary">Alterar</button>
+		</form>
+	</div>
+	{else}
+							
+	<div class="cad-dados-pessoas">
+		<form role="form" action="/checkout-cep" method="post">
+		  	<div class="form-group">
+			    <label for="cep_endereco">CEP</label>
+			    <input type="text" placeholder="00000-000"  class="form-control" id="cep_endereco" name="cep_endereco" autofocus required>
+		  	</div>
+	        <input type="submit" value="Atualizar CEP" class="meu-btn" formaction="/checkout-cep" formmethod="post">
+
+		  	<div class="form-group">
+			    <label for="logradouro_endereco">Logradouro</label>
+			    <input type="text" class="form-control" value="" id="logradouro_endereco" name="logradouro_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="complemento">Complemento</label>
+			    <input type="text" class="form-control" value="" id="complemento" name="complemento">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="cidade_endereco">Cidade</label>
+			    <input type="text" class="form-control" value="" id="cidade_endereco" name="cidade_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="estado_endereco">Estado</label>
+			    <input type="text" class="form-control" value="" id="estado_endereco" name="estado_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="bairro_endereco">Bairro</label>
+			    <input type="text" class="form-control" value="" id="bairro_endereco" name="bairro_endereco">
+		  	</div>
+		  	<div class="form-group">
+			    <label for="numero_endereco">Número</label>
+			    <input type="text" class="form-control" value="" id="numero_endereco" name="numero_endereco">
+		  	</div>
+
+		  	<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
+	</div>
+	{/if}
 </div>
-{else}
-						
-<div class="cad-dados-pessoas">
-	<form role="form" action="/checkout-cep" method="post">
-	  	<div class="form-group">
-		    <label for="cep_endereco">CEP</label>
-		    <input type="text" placeholder="00000-000"  class="form-control" id="cep_endereco" name="cep_endereco" autofocus required>
-	  	</div>
-        <input type="submit" value="Atualizar CEP" class="button alt" formaction="/checkout-cep" formmethod="post">
-
-	  	<div class="form-group">
-		    <label for="logradouro_endereco">Logradouro</label>
-		    <input type="text" class="form-control" value="" id="logradouro_endereco" name="logradouro_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="complemento">Complemento</label>
-		    <input type="text" class="form-control" value="" id="complemento" name="complemento">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="cidade_endereco">Cidade</label>
-		    <input type="text" class="form-control" value="" id="cidade_endereco" name="cidade_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="estado_endereco">Estado</label>
-		    <input type="text" class="form-control" value="" id="estado_endereco" name="estado_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="bairro_endereco">Bairro</label>
-		    <input type="text" class="form-control" value="" id="bairro_endereco" name="bairro_endereco">
-	  	</div>
-	  	<div class="form-group">
-		    <label for="numero_endereco">Número</label>
-		    <input type="text" class="form-control" value="" id="numero_endereco" name="numero_endereco">
-	  	</div>
-
-	  	<button type="submit" class="btn btn-primary">Salvar</button>
-	</form>
-</div>
-{/if}

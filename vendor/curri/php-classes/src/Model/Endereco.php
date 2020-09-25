@@ -4,6 +4,7 @@ namespace Curri\Model;
 
 use \Curri\DB\Sql;
 use \Curri\Model;
+use \Curri\Model\Message;
 
 class Endereco extends Model{
 
@@ -16,7 +17,7 @@ class Endereco extends Model{
 			INNER JOIN tb_endereco b
 			ON a.id_usuario = b.id_pessoa
 			WHERE a.id_usuario = :id", array(
-			":id"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":id"=>Login::getSessionUserId()
 		));
 		// var_dump(count($results) === 0);
 		// exit;
@@ -64,6 +65,12 @@ class Endereco extends Model{
 			// $_POST['numero_endereco'] = $_POST['numero_endereco'];
 			// $this->setdescountry('Brasil');
 
+		}else{
+
+			Message::setMessegeErrorEndereco('Informe um CEP válido.');
+			header('Location: /endereco');
+			exit;
+
 		}
 
 	}
@@ -76,17 +83,29 @@ class Endereco extends Model{
 
 		$results = $sql->select("CALL sp_salvar_endereco(:logradouro_endereco, :complemento, :cidade_endereco, :estado_endereco, :cep_endereco, :id_pessoa, :bairro_endereco, :numero_endereco)",
 			array(							
-			"logradouro_endereco"=>utf8_decode($_POST['logradouro_endereco']),
-			"complemento"=>utf8_decode($_POST['complemento']),
-			"cidade_endereco"=>utf8_decode($_POST['cidade_endereco']),
-			"estado_endereco"=>utf8_decode($_POST['estado_endereco']),
-			"cep_endereco"=>$_POST['cep_endereco'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"],
-			"bairro_endereco"=>utf8_decode($_POST['bairro_endereco']),
-			"numero_endereco"=>$_POST['numero_endereco']
+			":logradouro_endereco"=>utf8_encode($_POST['logradouro_endereco']),
+			":complemento"=>utf8_encode($_POST['complemento']),
+			":cidade_endereco"=>utf8_encode($_POST['cidade_endereco']),
+			":estado_endereco"=>utf8_encode($_POST['estado_endereco']),
+			":cep_endereco"=>$_POST['cep_endereco'],
+			":id_pessoa"=>Login::getSessionUserId(),
+			":bairro_endereco"=>utf8_encode($_POST['bairro_endereco']),
+			":numero_endereco"=>$_POST['numero_endereco']
 		));
+		if(count($results[0]) > 0){
 
-		$this->setData($results[0]);
+			$this->setData($results[0]);
+			Message::setMessegeSucessoEndereco('Endereço cadastrado com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeErrorEndereco('Erro ao cadastrar endereço.');
+			header('Location: /endereco');
+			exit;
+
+		}
 
 	}
 
@@ -102,20 +121,29 @@ class Endereco extends Model{
 
 		$results = $sql->select("CALL sp_up_endereco(:logradouro_endereco, :complemento, :cidade_endereco, :estado_endereco, :cep_endereco, :id_pessoa, :bairro_endereco, :numero_endereco)",
 			array(							
-			"logradouro_endereco"=>utf8_decode($_POST['logradouro_endereco']),
-			"complemento"=>utf8_decode($_POST['complemento']),
-			"cidade_endereco"=>utf8_decode($_POST['cidade_endereco']),
-			"estado_endereco"=>utf8_decode($_POST['estado_endereco']),
-			"cep_endereco"=>$_POST['cep_endereco'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"],
-			"bairro_endereco"=>utf8_decode($_POST['bairro_endereco']),
-			"numero_endereco"=>$_POST['numero_endereco']
+			":logradouro_endereco"=>utf8_encode($_POST['logradouro_endereco']),
+			":complemento"=>utf8_encode($_POST['complemento']),
+			":cidade_endereco"=>utf8_encode($_POST['cidade_endereco']),
+			":estado_endereco"=>utf8_encode($_POST['estado_endereco']),
+			":cep_endereco"=>$_POST['cep_endereco'],
+			":id_pessoa"=>Login::getSessionUserId(),
+			":bairro_endereco"=>utf8_encode($_POST['bairro_endereco']),
+			":numero_endereco"=>$_POST['numero_endereco']
 		));
+		if(count($results[0]) > 0){
 
-		// var_dump($results);
-		// exit;
+			$this->setData($results[0]);
+			Message::setMessegeSucessoEndereco('Endereço cadastrado com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
 
-		$this->setData($results[0]);
+		}else{
+
+			Message::setMessegeErrorEndereco('Erro ao cadastrar endereço.');
+			header('Location: /endereco');
+			exit;
+
+		}
 
 	}
 

@@ -15,6 +15,7 @@ $app->get('/formacao-academica', function(){
 	// exit;
 	$conclusao = utf8_encode($temFormacaoAcademica['conclusao']);
 	$formacaoDescricao = utf8_encode($temFormacaoAcademica['formacao_academica']);
+	$instituicao = utf8_encode($temFormacaoAcademica['instituicao']);
 
 	$page = new Page();
 
@@ -22,7 +23,8 @@ $app->get('/formacao-academica', function(){
 		'formacaoAcademica'=>$temFormacaoAcademica,
 		'idPessoa'=>$idPessoa,
 		'conclusaoConcluido'=>$conclusao,
-		'formacaoDescricao'=>$formacaoDescricao
+		'formacaoDescricao'=>$formacaoDescricao,
+		'instituicao'=>$instituicao
 	]);
 
 });

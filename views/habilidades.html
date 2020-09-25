@@ -1,25 +1,38 @@
-<div class="cad-dados-pessoas">
-	<form role="form" action="/habilidades" method="post">
-	  	<div class="form-group">
-		    <label for="habilidade">Habilidades</label>
-		    <input type="text" class="form-control" id="habilidade" name="habilidade">
-	  	</div>
-	  	<!-- <div class="form-group">
-		    <label for="tb_habilidadescol">Nascionalidade</label>
-		    <input type="text" class="form-control" id="tb_habilidadescol" name="tb_habilidadescol">
-	  	</div> -->
+<div class="wrapper">
+	<div class="bread">
+		<div class="breadCrumb">
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Habilidades</p></span>
+		</div>
+		<div class="bread-title">
+			<h1>Habilidades</h1>
+		</div>
+	</div>
+	<br class="clear">
+	<br class="clear">
+	
+	<div class="cad-dados-pessoas">
+		<form role="form" action="/habilidades" method="post">
+		  	<div class="form-group">
+			    <label for="habilidade">Habilidades</label>
+			    <input type="text" class="form-control" id="habilidade" name="habilidade">
+		  	</div>
+		  	<!-- <div class="form-group">
+			    <label for="tb_habilidadescol">Nascionalidade</label>
+			    <input type="text" class="form-control" id="tb_habilidadescol" name="tb_habilidadescol">
+		  	</div> -->
 
-	  	<button type="submit" class="btn btn-primary">Salvar</button>
-	</form>
+		  	<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
 
-	<br class="clear">
-	<br class="clear">
-	<br class="clear">
-	{if="$habili['id_pessoa'] == $idPessoa && $habili !== NULL"}
-		{loop="$my_habili"}
-			<div class="min-hab">
-				<p>{$my_habili.habilidade}</p>
-			</div>
-		{/loop}
-	{/if}
+		<br class="clear">
+		<br class="clear">
+		<br class="clear">
+		{if="$habili['id_pessoa'] == $idPessoa && $habili !== NULL"}
+			{loop="$my_habili"}
+				<div class="min-hab">
+					<p>{$value.habilidade}</p>
+				</div>
+			{/loop}
+		{/if}
+	</div>
 </div>

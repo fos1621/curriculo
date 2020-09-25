@@ -16,7 +16,7 @@ class Nascionalidade extends Model{
 			INNER JOIN tb_nascionalidade b
 			ON a.id_usuario = b.id_pessoa
 			WHERE a.id_usuario = :id", array(
-			":id"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":id"=>Login::getSessionUserId()
 		));
 
 		if (count($results) !== 0) {
@@ -31,8 +31,8 @@ class Nascionalidade extends Model{
 
 		$results = $sql->select("CALL sp_salvar_nascionalidade(:nascionalidade, :id_pessoa)",
 			array(
-			"nascionalidade"=>$_POST['nascionalidade'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":nascionalidade"=>$_POST['nascionalidade'],
+			":id_pessoa"=>Login::getSessionUserId()
 		));
 
 		$this->setData($results[0]);
@@ -45,8 +45,8 @@ class Nascionalidade extends Model{
 
 		$results = $sql->select("CALL sp_up_nascionalidade(:nascionalidade, :id_pessoa)",
 			array(
-			"nascionalidade"=>$_POST['nascionalidade'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":nascionalidade"=>$_POST['nascionalidade'],
+			":id_pessoa"=>Login::getSessionUserId()
 		));
 
 		$this->setData($results[0]);

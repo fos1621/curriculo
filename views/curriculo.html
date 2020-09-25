@@ -3,7 +3,7 @@
 	<div class="nome-pessoa-1">
 		<h1>{$pessoa.nomepessoa} {$pessoa.sobrenomepessoa}</h1>
 		<div class="centralize hr-1">
-			<hr>			
+			<hr>
 		</div>
 	</div>
 
@@ -11,24 +11,24 @@
 		<h2>Dados pessoais:</h2>
 		<div class="row">
 			<div class="col-6">
-				<p><b>Nascionalidade: </b>{$nascionalidade.nascionalidade}</p>
-				<p><b>Bairro: </b>{$endereco.bairro_endereco}</p>
-				<p><b>Cidade: </b>{$endereco.cidade_endereco}</p>
-				<p><b>Estado civil: </b>{if="$pessoa.estado_civil == 'Selecione'"} {else}{$pessoa.estado_civil}{/if}</p>
+				<p><span>Nascionalidade: </span>{$nascionalidade.nascionalidade}</p>
+				<p><span>Bairro: </span>{$endereco.bairro_endereco}</p>
+				<p><span>Cidade: </span>{$endereco.cidade_endereco}</p>
+				<p><span>Estado civil: </span>{if="$pessoa.estado_civil == 'Selecione'"} {else}{$pessoa.estado_civil}{/if}</p>
 			</div>
 			<div class="col-6">
-				<p><b>Endereço: </b>{$endereco.logradouro_endereco}</p>
-				<p><b>Data de nascimento: </b>{$pessoa.datanascimentopessoa}</p>
-				<p><b>Celular/Telefone: </b>({$telefone.ddd_fone}) {$telefone.numero_fone}</p>
-				<p><b>Email: </b>{$pessoa.emailusuario}</p>
+				<p><span>Endereço: </span>{$endereco.logradouro_endereco}</p>
+				<p><span>Data de nascimento: </span> {if="$pessoa.datanascimentopessoa == '0000-00-00' or $pessoa.datanascimentopessoa == NULL"} {else} {function="formatDate($pessoa.datanascimentopessoa)"} {/if}</p>
+				<p><span>Celular/Telefone: </span>{if="$telefone.ddd_fone == NULL and $telefone.numero_fone == NULL"} {else} ({$telefone.ddd_fone}) {$telefone.numero_fone} {/if}</p>
+				<p><span>Email: </span>{$pessoa.emailusuario}</p>
 			</div>
 		</div>
 	</div>
 
+	<div class="centralize hr-1">
+		<hr>
+	</div>
 	<div class="area-interesse-1">
-		<div class="centralize hr-1">
-			<hr>			
-		</div>
 
 		<h2>Área de interesse:</h2>
 
@@ -39,16 +39,70 @@
 		</div>
 	</div>
 
+	<div class="centralize hr-1">
+		<hr>
+	</div>
 	<div class="formacao-academica-1">
-		<div class="centralize hr-1">
-			<hr>			
-		</div>
 
 		<h2>Formação acadêmica</h2>
 
 		<div class="row">
-			<p><b>{$conclusao}: </b>{$formacaoDescricao} / {$formacaoAcademica.instituicao} / {$formacaoAcademica.ano_formacao_academica} </p>
+			<p>
+				<span>{if="$conclusao == NULL"} Conclusão: {else} {$conclusao}: </span> {/if}{$formacaoDescricao} / 
+
+				<span>Instituição: </span>{$formacaoAcademica.instituicao} / 
+
+				<span>Início: </span>{if="$formacaoAcademica.inicio_formacao_academica == '0000-00-00' or $formacaoAcademica.inicio_formacao_academica == NULL"} {else} {function="formatDate($formacaoAcademica.inicio_formacao_academica)"} {/if} /  
+
+				<span>Termino: </span>{if="$formacaoAcademica.ano_formacao_academica == '0000-00-00' or $formacaoAcademica.ano_formacao_academica == NULL"} {else} {function="formatDate($formacaoAcademica.ano_formacao_academica)"} {/if}
+			</p>
 		</div>
+	</div>
+
+	<div class="centralize hr-1">
+		<hr>			
+	</div>
+	<div class="habilidades-1">
+
+		<h2>Habilidade(s)</h2>
+
+		<div class="row">
+			<ul class="list">
+				{loop="$habilidade"}
+					<li>{$value.habilidade}</li>
+				{/loop}
+			</ul>
+		</div>
+		<!-- <div class="row">
+			{loop="$habilidade"}
+				<div class="col-3">
+					{$value.habilidade}
+				</div>
+			{/loop}
+		</div> -->
+	</div>
+
+	<div class="centralize hr-1">
+		<hr>			
+	</div>
+	<div class="experiencias-1">
+
+		<h2>Experiência Profissional</h2>
+
+		<div class="row">
+			<ul class="list">
+				{loop="$experiencias"}
+					<li><span>Empresa: </span>{$value.empresa_experiencias} | <span>Cargo: </span>{$value.cargo_experiencias} | <span>Início: </span>{function="formatDate($value.inicio_experiencias)"} {if="$value.fim_experiencias == '0000-00-00'"} | Atualmente {else}| <span>Fim: </span>{function="formatDate($value.fim_experiencias)"}{/if}</li>
+				{/loop}
+			</ul>
+		</div>
+		<!-- <div class="row">
+			{loop="$habilidade"}
+				<div class="col-3">
+					{$value.habilidade}
+				</div>
+			{/loop}
+		</div> -->
 	</div>
 
 </div>

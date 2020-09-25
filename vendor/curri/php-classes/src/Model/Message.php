@@ -7,27 +7,209 @@ use \Curri\Model;
 
 class Message extends Model{
 
-	const MESSAGEM = "Mensagem";
+	const MESSAGEM_ERRO = "MensagemErro";
+	const MESSAGEM_SUCESSO = "MensagemSucesso";
+	const MESSAGEM_ERRO_CADASTRO = "ErroCadastro";
+	const MESSAGEM_SUCESSO_CADASTRO = "SucessoCadastro";
+	const MESSEGE_ERRO_ENDERECO = 'ErroEndereco';
+	const MESSAGEM_SUCESSO_ENDERECO = 'SucessoEndereco';
+	const MESSEGEM_ERRO_PESSOA = 'ErroEndereco';
+	const MESSAGEM_SUCESSO_PESSOA = 'SucessoEndereco';
 
-	public static function setMessageError($msg){
 
-		$_SESSION[Message::MESSAGEM] = $msg;
+	//INÍCIO MESSAM DE ERRO CADASTRO EXISTE LOGIN
+
+	public static function setMessegeErrorCadastro($msg){
+
+		$_SESSION[Message::MESSAGEM_ERRO_CADASTRO] = $msg;
 
 	}
 
-	public static function getMessageError(){
+	public static function getMessageErrorCadastro() {
 
-		$msg = (isset($_SESSION[Message::MESSAGEM])) ? $_SESSION[Message::MESSAGEM] : "";
+		$msg = (isset($_SESSION[Message::MESSAGEM_ERRO_CADASTRO])) ? $_SESSION[Message::MESSAGEM_ERRO_CADASTRO] : '';
 
-		Message::clearMessageError();
+		Message::clearMessageErrorCadastro();
 
 		return $msg;
 
 	}
 
-	public static function clearMessageError(){
+	public static function clearMessageErrorCadastro(){
 
-		$_SESSION[Message::MESSAGEM] = NULL;
+		$_SESSION[Message::MESSAGEM_ERRO_CADASTRO] = NULL;
+
+	}
+
+	//FIM MESSAM DE ERRO CADASTRO EXISTE LOGIN
+
+
+
+
+	//INÍCIO MESSAM DE SUCESSO CADASTRO EXISTE LOGIN
+
+	public static function setMessegeSucessoCadastro($msg){
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_CADASTRO] = $msg;
+
+	}
+
+	public static function getMessageSucessoCadastro() {
+
+		$msg = (isset($_SESSION[Message::MESSAGEM_SUCESSO_CADASTRO])) ? $_SESSION[Message::MESSAGEM_SUCESSO_CADASTRO] : '';
+
+		Message::clearMessageSucessoCadastro();
+
+		return $msg;
+
+	}
+
+	public static function clearMessageSucessoCadastro(){
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_CADASTRO] = NULL;
+
+	}
+
+	//FIM MESSAM DE SUCESSO CADASTRO EXISTE LOGIN
+
+
+
+
+	//INÍCIO MESSAM DE ERRO E SUCESSO ENDEREÇO CADASTRO EXISTE LOGIN
+
+	public static function setMessegeErrorEndereco($msg) {
+
+		$_SESSION[Message::MESSEGE_ERRO_ENDERECO] = $msg;
+
+	}
+	public static function setMessegeSucessoEndereco($msg) {
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_ENDERECO] = $msg;
+		
+	}
+
+	public static function getMessageErrorEndereco(){
+
+		$msg = (isset($_SESSION[Message::MESSEGE_ERRO_ENDERECO])) ? $_SESSION[Message::MESSEGE_ERRO_ENDERECO] : '';
+
+		Message::clearMessageEndereco();
+
+		return $msg;
+
+	}
+	public static function getMessageSucessoEndereco(){
+
+
+
+		$msg = (isset($_SESSION[Message::MESSEGE_ERRO_ENDERECO])) ? $_SESSION[Message::MESSEGE_ERRO_ENDERECO] : '';
+
+		Message::clearMessageEndereco();
+
+		return $msg;
+		
+	}
+
+	public static function clearMessageEndereco(){
+
+		$_SESSION[Message::MESSEGE_ERRO_ENDERECO] = NULL;
+
+	}
+
+	//FIM MESSAM DE ERRO E SUCESSO ENDEREÇO CADASTRO EXISTE LOGIN
+
+
+
+
+	//INÍCIO MESSAM DE ERRO E SUCESSO PESSOA CADASTRO EXISTE LOGIN
+
+	public static function setMessegeErrorPessoa($msg) {
+
+		$_SESSION[Message::MESSEGEM_ERRO_PESSOA] = $msg;
+
+	}
+	public static function setMessegeSucessoPessoa($msg) {
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_PESSOA] = $msg;
+		
+	}
+
+	public static function getMessageErrorPessoa(){
+
+		$msg = (isset($_SESSION[Message::MESSEGEM_ERRO_PESSOA])) ? $_SESSION[Message::MESSEGEM_ERRO_PESSOA] : '';
+
+		Message::clearMessagePessoa();
+
+		return $msg;
+
+	}
+	public static function getMessageSucessoPessoa(){
+
+
+
+		$msg = (isset($_SESSION[Message::MESSAGEM_SUCESSO_PESSOA])) ? $_SESSION[Message::MESSAGEM_SUCESSO_PESSOA] : '';
+
+		Message::clearMessagePessoa();
+
+		return $msg;
+		
+	}
+
+	public static function clearMessagePessoa(){
+
+		$_SESSION[Message::MESSEGEM_ERRO_PESSOA] = NULL;
+		$_SESSION[Message::MESSAGEM_SUCESSO_PESSOA] = NULL;
+
+	}
+
+	//FIM MESSAM DE ERRO E SUCESSO PESSOA CADASTRO EXISTE LOGIN
+
+
+
+
+
+
+
+	public static function setMessegeError($msg){
+
+		$_SESSION[Message::MESSAGEM_ERRO] = $msg;
+
+	}
+
+	public static function getMessegeError(){
+
+		$msg = (isset($_SESSION[Message::MESSAGEM_ERRO])) ? $_SESSION[Message::MESSAGEM_ERRO] : "";
+
+		Message::clearMessegeError();
+
+		return $msg;
+
+	}
+
+	public static function clearMessegeError(){
+
+		$_SESSION[Message::MESSAGEM_ERRO] = NULL;
+
+	}
+
+	public static function setMessegeSucesso($msg){
+
+		$_SESSION[Message::MESSAGEM_SUCESSO] = $msg;
+
+	}
+
+	public static function getMessegeSucesso(){
+
+		$msg = (isset($_SESSION[Message::MESSAGEM_SUCESSO])) ? $_SESSION[Message::MESSAGEM_SUCESSO] : "";
+
+		Message::clearMessegeSucesso();
+
+		return $msg;
+
+	}
+
+	public static function clearMessegeSucesso(){
+
+		$_SESSION[Message::MESSAGEM_SUCESSO] = NULL;
 
 	}
 

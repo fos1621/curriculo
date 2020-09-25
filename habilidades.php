@@ -13,13 +13,17 @@ $app->get('/habilidades', function(){
 	$temHabilidades = Habilidades::procuraPessoaHabilidades();
 
 	$idPessoa = $_SESSION[Login::SESSION]['id_usuario'];
-	// var_dump($temHabilidades);exit;
+
+	$list = Habilidades::procuraHabilidade();
+	
+	// $lista = array_push($list, $temHabilidades["habilidade"]);
+	// var_dump(Habilidades::procuraHabilidade());exit;
 
 	$page = new Page();
 
 	$page->setTpl('habilidades', [
 		'habili'=>$temHabilidades,
-		'my_habili'=>Habilidades::procuraPessoaHabilidades(),
+		'my_habili'=>$list,
 		'idPessoa'=>$idPessoa
 	]);
 

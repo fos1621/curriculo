@@ -9,6 +9,7 @@ use \Curri\Model\Nascionalidade;
 use \Curri\Model\Telefone;
 use \Curri\Model\AreaInteresse;
 use \Curri\Model\FormacaoAcademica;
+use \Curri\Model\Experiencias;
 
 $app->get('/visualizar-curriculo', function() {
 	
@@ -23,6 +24,8 @@ $app->get('/visualizar-curriculo', function() {
 	$formacaoAcademica = FormacaoAcademica::procuraPessoaFormacaoAcademica();
 	$conclusao = utf8_encode($formacaoAcademica['conclusao']);
 	$formacaoDescricao = utf8_encode($formacaoAcademica['formacao_academica']);
+	$habilidade = Habilidades::procuraHabilidade();
+	$experiencias = Experiencias::procuraExperiencias();
 	// var_dump($formacaoAcademica['formacao_academica']);
 	// exit;
 
@@ -39,7 +42,9 @@ $app->get('/visualizar-curriculo', function() {
 		'areaInteresse'=>$areaInteresse,
 		'formacaoAcademica'=>$formacaoAcademica,
 		'conclusao'=>$conclusao,
-		'formacaoDescricao'=>$formacaoDescricao
+		'formacaoDescricao'=>$formacaoDescricao,
+		'habilidade'=>$habilidade,
+		'experiencias'=>$experiencias
 	]);
 
 });

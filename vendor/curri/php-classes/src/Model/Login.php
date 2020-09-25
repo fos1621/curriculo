@@ -4,6 +4,7 @@ namespace Curri\Model;
 
 use \Curri\DB\Sql;
 use \Curri\Model;
+use \Curri\Model\Message;
 
 class Login extends Model{
 
@@ -33,6 +34,19 @@ class Login extends Model{
 
 	}
 
+	public static function verificaTemLogin($login){
+
+		$sql = new Sql();
+
+		$exiteUsuario = $sql->select("SELECT emailusuario, nomeusuario FROM tb_user WHERE emailusuario = :emailusuario OR nomeusuario = :nomeusuario", array(
+			':emailusuario'=>$login,
+			'nomeusuario'=>$login
+		));
+
+		return (count($exiteUsuario) > 0);
+
+	}
+
 	public function save(){
 
 		$sql = new Sql();
@@ -47,7 +61,16 @@ class Login extends Model{
 		));
 		// CALL sp_save_user('F@gmail.com', 0, 1, '123', 'filipe', 'santos', 'M', '2020-03-19');
 
-		$this->setData($results[0]);
+		if(count($results[0]) > 0){
+			
+			$this->setData($results[0]);
+			
+		}else{
+
+			Message::setMessegeErrorCadastro("Usuário inexistente ou senha inválida.");
+			header('Location: /cadastrado');
+			exit;
+		}
 
 	}
 
@@ -57,12 +80,15 @@ class Login extends Model{
 
 		$results = $sql->select("SELECT * FROM tb_user WHERE emailusuario = :login OR nomeusuario = :login",
 		array(
+			':login'=>$login,
 			':login'=>$login
 		));
 
 		if(count($results) === 0){
 
-			throw new Exception("Usuário inexistente ou senha inválida.");
+			Message::setMessegeError("Usuário inexistente ou senha inválida.");
+			header('Location: /login');
+			exit;
 
 		}
 
@@ -80,7 +106,9 @@ class Login extends Model{
 
 		}else{
 
-			throw new Exception("Usuário inexistente ou senha inválida.");
+			Message::setMessegeError("Usuário inexistente ou senha inválida.");
+			header('Location: /login');
+			exit;
 			
 
 		}

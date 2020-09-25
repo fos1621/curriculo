@@ -31,7 +31,7 @@ $app->post('/telefone', function(){
 
 	$telefone->save();
 
-	header('Location: /telefone');
+	header('Location: /criar-curriculo');
 	exit;
 
 });
@@ -44,7 +44,7 @@ $app->post('/telefone-up', function(){
 
 	$telefone->updateTelefone();
 
-	header('Location: /telefone');
+	header('Location: /criar-curriculo');
 	exit;
 
 });

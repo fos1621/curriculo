@@ -16,7 +16,7 @@ class Telefone extends Model{
 			INNER JOIN tb_fone b
 			ON a.id_usuario = b.id_pessoa
 			WHERE a.id_usuario = :id", array(
-			":id"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":id"=>Login::getSessionUserId()
 		));
 		// var_dump(count($results) === 0);
 		// exit;
@@ -36,9 +36,9 @@ class Telefone extends Model{
 
 		$results = $sql->select("CALL 	sp_salvar_fone(:ddd_fone, :numero_fone, :id_pessoa)",
 			array(
-			"ddd_fone"=>$_POST['ddd_fone'],
-			"numero_fone"=>$_POST['numero_fone'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":ddd_fone"=>$_POST['ddd_fone'],
+			":numero_fone"=>$_POST['numero_fone'],
+			":id_pessoa"=>Login::getSessionUserId()
 		));
 
 		$this->setData($results[0]);
@@ -51,9 +51,9 @@ class Telefone extends Model{
 
 		$results = $sql->select("CALL sp_up_fone(:ddd_fone, :numero_fone, :id_pessoa)",
 			array(
-			"ddd_fone"=>$_POST['ddd_fone'],
-			"numero_fone"=>$_POST['numero_fone'],
-			":id_pessoa"=>$_SESSION[Login::SESSION]["id_usuario"]
+			":ddd_fone"=>$_POST['ddd_fone'],
+			":numero_fone"=>$_POST['numero_fone'],
+			":id_pessoa"=>Login::getSessionUserId()
 		));
 
 		// var_dump($results);
