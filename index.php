@@ -19,6 +19,7 @@ require_once("endereco.php");
 require_once("pessoa.php");
 require_once("login.php");
 require_once("cadastro.php");
+require_once("esqueceu-senha.php");
 require_once("telefone.php");
 require_once("nascionalidade.php");
 require_once("habilidades.php");
@@ -65,6 +66,9 @@ $app->get("/criar-curriculo", function(){
 	$getMessageEnderecoSucesso = Message::getMessageSucessoEndereco();
 	$mensagemTelefoneSucesso = Message::getMessegeSucesso();
 	$mensagemNascionalidadeSucesso = Message::getMessegeSucesso();
+	$mensagemHabilidadeSucesso = Message::getMessegeSucesso();
+	$mensagemAreaInteresseSucesso = Message::getMessegeSucesso();
+	$mensagemFormacaoAcademicaSucesso = Message::getMessegeSucesso();
 
 	$page = new Page();
 
@@ -75,7 +79,10 @@ $app->get("/criar-curriculo", function(){
 		'getMessageEnderecoSucesso'=>$getMessageEnderecoSucesso,
 		'getMessageDadosPessoaisAlterarSucesso'=>$getMessageDadosPessoaisAlterarSucesso,
 		'mensagemTelefoneSucesso'=>$mensagemTelefoneSucesso,
-		'mensagemNascionalidadeSucesso'=>$mensagemNascionalidadeSucesso
+		'mensagemNascionalidadeSucesso'=>$mensagemNascionalidadeSucesso,
+		'mensagemHabilidadeSucesso'=>$mensagemHabilidadeSucesso,
+		'mensagemAreaInteresseSucesso'=>$mensagemAreaInteresseSucesso,
+		'mensagemFormacaoAcademicaSucesso'=>$mensagemFormacaoAcademicaSucesso
 	]);
 
 });

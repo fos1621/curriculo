@@ -9,13 +9,27 @@
 	</div>
 	<br class="clear">
 	<br class="clear">
+
+	<?php if( $mensagemErroAreaInteresse != '' ){ ?>
+		<script>
+			swal({
+				title: "<?php echo htmlspecialchars( $mensagemErroAreaInteresse, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+
+	<br class="clear">
+	<br class="clear">
 	
 	<?php if( $areaInteresse['id_pessoa'] == $idPessoa && $areaInteresse !== NULL ){ ?>
 	<div class="cad-dados-pessoas">
 		<form role="form" action="/area-interesse-up" method="post">
 		  	<div class="form-group">
 			    <label for="area_interesse">Área de interesse</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $areaInteresse["area_interesse"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="area_interesse" name="area_interesse">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $areaInteresseApenas, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="area_interesse" name="area_interesse">
 		  	</div>
 		  	<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
@@ -26,7 +40,7 @@
 		<form role="form" action="/area-interesse" method="post">
 		  	<div class="form-group">
 			    <label for="area_interesse">Área de interesse</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $areaInteresse["area_interesse"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="area_interesse" name="area_interesse">
+			    <input type="text" class="form-control" id="area_interesse" name="area_interesse">
 		  	</div>
 		  	<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>

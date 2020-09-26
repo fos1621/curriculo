@@ -58,7 +58,7 @@
 		  <div class="btns-login">
 		  	<a class="btn-login-2" href="/cadastro" role="button">Cadastre-se</a>
 		  </div>
-		  <a class="btn-login-3" href="/cadastro" role="button">Esqueceu a senha?</a>
+		  <a class="btn-login-3" href="/esqueceu-senha" role="button">Esqueceu a senha?</a>
 		</form>
 	</div>
 

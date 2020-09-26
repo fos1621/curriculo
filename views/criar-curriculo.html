@@ -48,6 +48,26 @@
 	</script>
 {/if}
 
+{if="$mensagemAreaInteresseSucesso != ''"}
+	<script>
+		swal({
+			title: "{$mensagemAreaInteresseSucesso}",
+		  	text: '',
+		  	icon: "success",
+		});
+	</script>
+{/if}
+
+{if="$mensagemFormacaoAcademicaSucesso != ''"}
+	<script>
+		swal({
+			title: "{$mensagemFormacaoAcademicaSucesso}",
+		  	text: '',
+		  	icon: "success",
+		});
+	</script>
+{/if}
+
 <div class="wrapper">
 	<ul class="thumb">
 		<li>

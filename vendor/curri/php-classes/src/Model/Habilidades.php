@@ -32,7 +32,7 @@ class Habilidades extends Model{
 
 		// $results = $sql->select("SELECT COUNT(*) AS nrqtd FROM pessoa_habilidade WHERE id_pessoa = :id", array(
 		$results = $sql->select("
-			SELECT habilidade
+			SELECT id_habilidades, habilidade
 			FROM tb_habilidades  
 			WHERE id_pessoa = :id", array(
 			':id'=>Login::getSessionUserId()
@@ -52,8 +52,21 @@ class Habilidades extends Model{
 			":tb_habilidadescol"=>'',
 			":id_pessoa"=>Login::getSessionUserId()
 		));
+		
+		if(count($results[0]) > 0){
 
-		$this->setData($results[0]);
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Habilidade cadastrado com sucesso.');
+			header('Location: /habilidades');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao cadastrar habilidade.');
+			header('Location: /habilidades');
+			exit;
+
+		}
 
 	}
 
@@ -61,21 +74,13 @@ class Habilidades extends Model{
 
 		$sql = new Sql();
 
-		$results = $sql->seletc("
-			SELECT * FROM tb_pessoa a
-			INNER JOIN tb_habilidades b
-			ON a.id_pessoa = b.id_pessoa
-			WHERE id_habilidades = :id 
-			AND 
-			id_pessoa = :idPes", array(
-			':id'=>$id,
-			':idPes'=>$_SESSION[Login::SESSION]['id_usuario']
+		$results = $sql->select("
+			SELECT * FROM tb_habilidades
+			WHERE id_habilidades = :id_habilidades", array(
+			':id_habilidades'=>$id
 		));
 
-		var_dump($results);
-		exit;
-
-
+		return $results[0];
 
 	}
 
@@ -89,7 +94,76 @@ class Habilidades extends Model{
 			":id_pessoa"=>Login::getSessionUserId()
 		));
 
-		$this->setData($results[0]);
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Habilidade alterada com sucesso.');
+			header('Location: /habilidades');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao alterar dados da habilidade.');
+			header('Location: /habilidades');
+			exit;
+
+		}
+	}
+
+	public function updateHabilidadesWithId($id_habilidades, $habilidade){
+
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_up_habilidades_id(:habilidade, :id_habilidades, :id_pessoa)",
+		// $results = $sql->select("UPDATE tb_habilidades set habilidade = :habilidade WHERE id_habilidades = :id_habilidades;",
+			array(
+			":habilidade"=>$habilidade,
+			":id_habilidades"=>$id_habilidades,
+			":id_pessoa"=>Login::getSessionUserId(),
+		));
+
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Habilidade alterada com sucesso.');
+			header('Location: /habilidades');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao alterar dados da habilidade.');
+			header('Location: /habilidades');
+			exit;
+
+		}
+
+	}
+
+	public function deleteHabilidadesWithId($id_habilidades){
+
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_delete_habilidades_id(:id_habilidades, :id_pessoa)",
+		// $results = $sql->select("UPDATE tb_habilidades set habilidade = :habilidade WHERE id_habilidades = :id_habilidades;",
+			array(
+			":id_habilidades"=>$id_habilidades,
+			":id_pessoa"=>Login::getSessionUserId()
+		));
+
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Habilidade excluida com sucesso.');
+			header('Location: /habilidades');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao excluir habilidade.');
+			header('Location: /habilidades');
+			exit;
+
+		}
 
 	}
 

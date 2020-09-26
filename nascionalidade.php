@@ -14,6 +14,8 @@ $app->get('/nascionalidade', function(){
 	$idPessoa = $_SESSION[Login::SESSION]['id_usuario'];
 
 	$mensagemErroNascionalidade = Message::getMessegeError();
+	// var_dump($temNascionalidade);
+	// exit;
 
 	$page = new Page();
 
@@ -29,7 +31,7 @@ $app->post('/nascionalidade', function(){
 
 	Login::verifyLogin(false);
 
-	if(!isset($_POST['nascionalidade']) || $_POST['nascionalidade'] = ''){
+	if(!isset($_POST['nascionalidade']) || $_POST['nascionalidade'] == ''){
 
 		Message::getMessegeError('Informe a nascionalidade.');
 		header('Location: /nascionalidade');
@@ -50,7 +52,7 @@ $app->post('/nascionalidade-up', function(){
 
 	Login::verifyLogin(false);
 
-	if(!isset($_POST['nascionalidade']) || $_POST['nascionalidade'] = ''){
+	if(!isset($_POST['nascionalidade']) || $_POST['nascionalidade'] == ''){
 
 		Message::getMessegeError('Informe a nascionalidade.');
 		header('Location: /nascionalidade');

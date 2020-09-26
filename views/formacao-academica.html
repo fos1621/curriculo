@@ -9,6 +9,20 @@
 	</div>
 	<br class="clear">
 	<br class="clear">
+
+	{if="$mensagemErroFormacaoAcademica != ''"}
+		<script>
+			swal({
+				title: "{$mensagemErroFormacaoAcademica}",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	{/if}
+
+
+	<br class="clear">
+	<br class="clear">
 	
 	{if="$formacaoAcademica['id_pessoa'] == $idPessoa && $formacaoAcademica !== NULL"}
 	<div class="cad-dados-pessoas">

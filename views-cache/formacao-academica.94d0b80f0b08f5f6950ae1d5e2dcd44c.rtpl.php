@@ -9,6 +9,20 @@
 	</div>
 	<br class="clear">
 	<br class="clear">
+
+	<?php if( $mensagemErroFormacaoAcademica != '' ){ ?>
+		<script>
+			swal({
+				title: "<?php echo htmlspecialchars( $mensagemErroFormacaoAcademica, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+			  	text: '',
+			  	icon: "error",
+			});
+		</script>
+	<?php } ?>
+
+
+	<br class="clear">
+	<br class="clear">
 	
 	<?php if( $formacaoAcademica['id_pessoa'] == $idPessoa && $formacaoAcademica !== NULL ){ ?>
 	<div class="cad-dados-pessoas">

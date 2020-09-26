@@ -39,7 +39,7 @@ $app->get('/visualizar-curriculo', function() {
 		'nascionalidade'=>$nascionalidade,
 		'endereco'=>$endereco,
 		'telefone'=>$telefone,
-		'areaInteresse'=>$areaInteresse,
+		'areaInteresse'=>utf8_encode($areaInteresse["area_interesse"]),
 		'formacaoAcademica'=>$formacaoAcademica,
 		'conclusao'=>$conclusao,
 		'formacaoDescricao'=>$formacaoDescricao,

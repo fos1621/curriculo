@@ -38,10 +38,23 @@ class AreaInteresse extends Model{
 		$results = $sql->select("CALL sp_salvar_area_interesse(:id_pessoa, :area_interesse)",
 			array(
 			":id_pessoa"=>Login::getSessionUserId(),
-			":area_interesse"=>$_POST['area_interesse']	
+			":area_interesse"=>utf8_decode($_POST['area_interesse'])
 		));
+		
+		if(count($results[0]) > 0){
 
-		$this->setData($results[0]);
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Área de interesse cadastrada com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao cadastrar área de interesse.');
+			header('Location: /endereco');
+			exit;
+
+		}
 
 	}
 
@@ -52,10 +65,23 @@ class AreaInteresse extends Model{
 		$results = $sql->select("CALL sp_up_area_interesse(:id_pessoa, :area_interesse)",
 			array(
 			":id_pessoa"=>Login::getSessionUserId(),
-			":area_interesse"=>$_POST['area_interesse']
+			":area_interesse"=>utf8_decode($_POST['area_interesse'])
 		));
 
-		$this->setData($results[0]);
+		if(count($results[0]) > 0){
+
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Área de interesse alterada com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao alterar área de interesse.');
+			header('Location: /endereco');
+			exit;
+
+		}
 
 	}
 

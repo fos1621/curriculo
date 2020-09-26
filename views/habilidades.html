@@ -9,6 +9,30 @@
 	</div>
 	<br class="clear">
 	<br class="clear">
+
+	{if="$mensagemErrohabilidade != ''"}
+		<script>
+			swal({
+				title: "{$mensagemErrohabilidade}",
+			  	text: '',
+			  	icon: "success",
+			});
+		</script>
+	{/if}
+
+	{if="$mensagemSucessohabilidade != ''"}
+		<script>
+			swal({
+				title: "{$mensagemSucessohabilidade}",
+			  	text: '',
+			  	icon: "success",
+			});
+		</script>
+	{/if}
+
+
+	<br class="clear">
+	<br class="clear">
 	
 	<div class="cad-dados-pessoas">
 		<form role="form" action="/habilidades" method="post">
@@ -30,7 +54,14 @@
 		{if="$habili['id_pessoa'] == $idPessoa && $habili !== NULL"}
 			{loop="$my_habili"}
 				<div class="min-hab">
-					<p>{$value.habilidade}</p>
+					<div class="habilidade-item">
+						<p>{$value.habilidade}</p>
+
+						<a rel="nofollow" href="/habilidade/{$value.id_habilidades}/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
+
+						<a rel="nofollow" href="/habilidade/{$value.id_habilidades}/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
+
+					</div>
 				</div>
 			{/loop}
 		{/if}

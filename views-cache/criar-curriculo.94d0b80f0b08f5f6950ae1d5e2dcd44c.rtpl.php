@@ -48,6 +48,26 @@
 	</script>
 <?php } ?>
 
+<?php if( $mensagemAreaInteresseSucesso != '' ){ ?>
+	<script>
+		swal({
+			title: "<?php echo htmlspecialchars( $mensagemAreaInteresseSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+		  	text: '',
+		  	icon: "success",
+		});
+	</script>
+<?php } ?>
+
+<?php if( $mensagemFormacaoAcademicaSucesso != '' ){ ?>
+	<script>
+		swal({
+			title: "<?php echo htmlspecialchars( $mensagemFormacaoAcademicaSucesso, ENT_COMPAT, 'UTF-8', FALSE ); ?>",
+		  	text: '',
+		  	icon: "success",
+		});
+	</script>
+<?php } ?>
+
 <div class="wrapper">
 	<ul class="thumb">
 		<li>

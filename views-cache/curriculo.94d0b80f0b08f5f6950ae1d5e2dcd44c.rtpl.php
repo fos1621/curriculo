@@ -34,7 +34,7 @@
 
 		<div class="row">
 			<div class="col-12">
-				<p><?php echo htmlspecialchars( $areaInteresse["area_interesse"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>				
+				<p><?php echo htmlspecialchars( $areaInteresse, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>				
 			</div>
 		</div>
 	</div>

@@ -83,15 +83,16 @@ class Endereco extends Model{
 
 		$results = $sql->select("CALL sp_salvar_endereco(:logradouro_endereco, :complemento, :cidade_endereco, :estado_endereco, :cep_endereco, :id_pessoa, :bairro_endereco, :numero_endereco)",
 			array(							
-			":logradouro_endereco"=>utf8_encode($_POST['logradouro_endereco']),
-			":complemento"=>utf8_encode($_POST['complemento']),
-			":cidade_endereco"=>utf8_encode($_POST['cidade_endereco']),
-			":estado_endereco"=>utf8_encode($_POST['estado_endereco']),
+			":logradouro_endereco"=>utf8_decode($_POST['logradouro_endereco']),
+			":complemento"=>utf8_decode($_POST['complemento']),
+			":cidade_endereco"=>utf8_decode($_POST['cidade_endereco']),
+			":estado_endereco"=>utf8_decode($_POST['estado_endereco']),
 			":cep_endereco"=>$_POST['cep_endereco'],
 			":id_pessoa"=>Login::getSessionUserId(),
-			":bairro_endereco"=>utf8_encode($_POST['bairro_endereco']),
+			":bairro_endereco"=>utf8_decode($_POST['bairro_endereco']),
 			":numero_endereco"=>$_POST['numero_endereco']
 		));
+		
 		if(count($results[0]) > 0){
 
 			$this->setData($results[0]);
@@ -121,13 +122,13 @@ class Endereco extends Model{
 
 		$results = $sql->select("CALL sp_up_endereco(:logradouro_endereco, :complemento, :cidade_endereco, :estado_endereco, :cep_endereco, :id_pessoa, :bairro_endereco, :numero_endereco)",
 			array(							
-			":logradouro_endereco"=>utf8_encode($_POST['logradouro_endereco']),
-			":complemento"=>utf8_encode($_POST['complemento']),
-			":cidade_endereco"=>utf8_encode($_POST['cidade_endereco']),
-			":estado_endereco"=>utf8_encode($_POST['estado_endereco']),
+			":logradouro_endereco"=>utf8_decode($_POST['logradouro_endereco']),
+			":complemento"=>utf8_decode($_POST['complemento']),
+			":cidade_endereco"=>utf8_decode($_POST['cidade_endereco']),
+			":estado_endereco"=>utf8_decode($_POST['estado_endereco']),
 			":cep_endereco"=>$_POST['cep_endereco'],
 			":id_pessoa"=>Login::getSessionUserId(),
-			":bairro_endereco"=>utf8_encode($_POST['bairro_endereco']),
+			":bairro_endereco"=>utf8_decode($_POST['bairro_endereco']),
 			":numero_endereco"=>$_POST['numero_endereco']
 		));
 

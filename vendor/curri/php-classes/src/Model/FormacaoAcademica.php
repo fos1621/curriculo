@@ -43,8 +43,21 @@ class FormacaoAcademica extends Model{
 			":conclusao"=>utf8_decode($_POST['conclusao']),
 			":inicio_formacao_academica"=>$_POST['inicio_formacao_academica']
 		));
+		
+		if(count($results[0]) > 0){
 
-		$this->setData($results[0]);
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Formação academica cadastrada com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao cadastrar formação academica.');
+			header('Location: /formacao-academica');
+			exit;
+
+		}
 
 	}
 
@@ -62,10 +75,20 @@ class FormacaoAcademica extends Model{
 			":inicio_formacao_academica"=>$_POST['inicio_formacao_academica']
 		));
 
-		// var_dump($results);
-		// exit;
+		if(count($results[0]) > 0){
 
-		$this->setData($results[0]);
+			$this->setData($results[0]);
+			Message::setMessegeSucesso('Formação academica alterada com sucesso.');
+			header('Location: /criar-curriculo');
+			exit;
+
+		}else{
+
+			Message::setMessegeError('Erro ao alterar dados da formação academica.');
+			header('Location: /formacao-academica');
+			exit;
+
+		}
 
 	}
 
