@@ -341,6 +341,24 @@ header #menu2 .dropdown-meu:hover .sub-menu li a {
 }
 /*Fim Pagina Habilidade e Experiencias*/
 
+/*Inicio Pagina telefone*/
+.tel-hide {
+    display: none;
+}
+/*Fim Pagina telefone*/
+
+/*Inicio pagina visualizar curritulo*/
+.btn-imprime .btn-login-1 {
+    width: 50%;
+    border-radius: 7px;
+    color: #fff;
+    background: #1a4780;
+    padding: 9px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+/*Fim pagina visualizar curritulo*/
+
 /*Inicio pagina criar-curritulo*/
 .thumb {
     display: inline;
@@ -353,15 +371,76 @@ header #menu2 .dropdown-meu:hover .sub-menu li a {
 }
 
 .thumb li {
-    width: 246px;
+    width: 314px;
     height: auto;
     float: left;
     margin: 5px 5px;
     background: #666;
 }
+.thumb li:hover a {
+    display: block!important;
+}
+.thumb li a {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 117px 25px;
+    background: #1a478099;
+    color: #FFF;
+    text-transform: uppercase;
+}
+.thumb .dados-pessoais {
+    background: url(/res/img/criar-curriculo/dados-pessoais.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
+.thumb .endereco {
+    background: url(/res/img/criar-curriculo/endereco.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
+.thumb .telefone {
+    background: url(/res/img/criar-curriculo/telefone.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
+.thumb .nascionalidade {
+    background: url(/res/img/criar-curriculo/nascionalidade.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
+.thumb .habilidades {
+    background: url(/res/img/criar-curriculo/habilidades.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
+.thumb .area-interesse {
+    background: url(/res/img/criar-curriculo/area-interesse.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
+.thumb .formacao-academica {
+    background: url(/res/img/criar-curriculo/formacao-academica.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+    overflow: hidden;
+}
+.thumb .experiencias {
+    background: url(/res/img/criar-curriculo/experiencias-02.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 313px;
+}
 /*Fim pagina criar-curritulo*/
 
-/*Inicio pÃƒÆ’Ã‚Â¡gina inicio e login*/
+/*Inicio pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina inicio e login*/
 .cad-login {
     display: flex;
     justify-content: center;
@@ -421,4 +500,4 @@ header #menu2 a:hover {
     margin-bottom: 10px;
     border-radius: 5px;
 }
-/*Fim pÃƒÆ’Ã‚Â¡gina inicio e login*/
+/*Fim pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina inicio e login*/

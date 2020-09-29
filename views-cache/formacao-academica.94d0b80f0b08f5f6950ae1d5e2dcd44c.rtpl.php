@@ -41,7 +41,7 @@
 		  	</div>
 		  	<div class="form-group">
 			    <label for="instituicao">Instituição da formação </label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $formacaoAcademica["instituicao"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="instituicao" name="instituicao">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $instituicao, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="instituicao" name="instituicao">
 		  	</div>
 
 		  	<div class="form-group">

@@ -1,3 +1,7 @@
+
+<div class="btn-imprime centralize">
+	<button id="print" class="btn-login-1">Imprimir Curriculo</button>
+</div>
 <div class="page-1">
 
 	<div class="nome-pessoa-1">
@@ -50,7 +54,7 @@
 			<p>
 				<span>{if="$conclusao == NULL"} Conclusão: {else} {$conclusao}: </span> {/if}{$formacaoDescricao} / 
 
-				<span>Instituição: </span>{$formacaoAcademica.instituicao} / 
+				<span>Instituição: </span>{function="utf8_en($formacaoAcademica.instituicao)"} / 
 
 				<span>Início: </span>{if="$formacaoAcademica.inicio_formacao_academica == '0000-00-00' or $formacaoAcademica.inicio_formacao_academica == NULL"} {else} {function="formatDate($formacaoAcademica.inicio_formacao_academica)"} {/if} /  
 
@@ -69,7 +73,7 @@
 		<div class="row">
 			<ul class="list">
 				{loop="$habilidade"}
-					<li>{$value.habilidade}</li>
+					<li>{function="utf8_de($value.habilidade)"}</li>
 				{/loop}
 			</ul>
 		</div>
@@ -92,7 +96,7 @@
 		<div class="row">
 			<ul class="list">
 				{loop="$experiencias"}
-					<li><span>Empresa: </span>{$value.empresa_experiencias} | <span>Cargo: </span>{$value.cargo_experiencias} | <span>Início: </span>{function="formatDate($value.inicio_experiencias)"} {if="$value.fim_experiencias == '0000-00-00'"} | Atualmente {else}| <span>Fim: </span>{function="formatDate($value.fim_experiencias)"}{/if}</li>
+					<li><span>Empresa: </span>{function="utf8_de($value.empresa_experiencias)"} | <span>Cargo: </span>{function="utf8_de($value.cargo_experiencias)"} | <span>Início: </span>{function="formatDate($value.inicio_experiencias)"} {if="$value.fim_experiencias == '0000-00-00'"} | Atualmente {else}| <span>Fim: </span>{function="formatDate($value.fim_experiencias)"}{/if}</li>
 				{/loop}
 			</ul>
 		</div>
@@ -104,5 +108,6 @@
 			{/loop}
 		</div> -->
 	</div>
+
 
 </div>

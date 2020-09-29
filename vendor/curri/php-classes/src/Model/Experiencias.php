@@ -116,8 +116,8 @@ class Experiencias extends Model{
 
 		$results = $sql->select("CALL sp_up_experiencia_id(:empresa_experiencias, :cargo_experiencias, :inicio_experiencias,  :fim_experiencias, :id_pessoa, :id_experiencias)",
 			array(
-			":empresa_experiencias"=>$_POST['empresa_experiencias'],
-			":cargo_experiencias"=>$_POST['cargo_experiencias'],
+			":empresa_experiencias"=>utf8_encode($_POST['empresa_experiencias']),
+			":cargo_experiencias"=>utf8_encode($_POST['cargo_experiencias']),
 			":inicio_experiencias"=>$_POST['inicio_experiencias'],
 			":fim_experiencias"=>$_POST['fim_experiencias'],
 			":id_pessoa"=>Login::getSessionUserId(),

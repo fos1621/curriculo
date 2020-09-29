@@ -35,6 +35,24 @@
 	<br class="clear">
 
 	<div class="cad-dados-pessoas">
+		<?php if( $experiencias['id_pessoa'] == $idPessoa && $experiencias !== NULL ){ ?>
+			<?php $counter1=-1;  if( isset($temExp) && ( is_array($temExp) || $temExp instanceof Traversable ) && sizeof($temExp) ) foreach( $temExp as $key1 => $value1 ){ $counter1++; ?>
+				<div class="for-expe">
+					<div class="experiencia-item">
+						<p><span>Empresa: </span><?php echo htmlspecialchars( $value1["empresa_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?> | <span>Cargo: </span><?php echo htmlspecialchars( $value1["cargo_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+
+						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
+
+						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
+					</div>
+				</div>
+			<?php } ?>
+		<?php } ?>
+
+		<br class="clear">
+		<br class="clear">
+		<br class="clear">
+		
 		<form role="form" action="/experiencias" method="post" class="form-expe">
 
 		  	<div class="form-group">
@@ -56,22 +74,5 @@
 
 		  	<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
-
-		<br class="clear">
-		<br class="clear">
-		<br class="clear">
-		<?php if( $experiencias['id_pessoa'] == $idPessoa && $experiencias !== NULL ){ ?>
-			<?php $counter1=-1;  if( isset($temExp) && ( is_array($temExp) || $temExp instanceof Traversable ) && sizeof($temExp) ) foreach( $temExp as $key1 => $value1 ){ $counter1++; ?>
-				<div class="for-expe">
-					<div class="experiencia-item">
-						<p><span>Empresa: </span><?php echo htmlspecialchars( $value1["empresa_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?> | <span>Cargo: </span><?php echo htmlspecialchars( $value1["cargo_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
-
-						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
-
-						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
-					</div>
-				</div>
-			<?php } ?>
-		<?php } ?>
 	</div>
 </div>

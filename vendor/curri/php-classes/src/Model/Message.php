@@ -15,6 +15,8 @@ class Message extends Model{
 	const MESSAGEM_SUCESSO_ENDERECO = 'SucessoEndereco';
 	const MESSEGEM_ERRO_PESSOA = 'ErroEndereco';
 	const MESSAGEM_SUCESSO_PESSOA = 'SucessoEndereco';
+	const MESSEGE_ERRO_RECUPERAR_SENHA = 'ErroRecuperarSenha';
+	const MESSAGEM_SUCESSO_RECUPERAR_SENHA = 'SucessoRecuperarSenha';
 
 
 	//INÍCIO MESSAM DE ERRO CADASTRO EXISTE LOGIN
@@ -212,6 +214,55 @@ class Message extends Model{
 		$_SESSION[Message::MESSAGEM_SUCESSO] = NULL;
 
 	}
+
+
+	//INÍCIO MESSAM DE ERRO E SUCESSO RecuperarSenha
+
+	public static function setMessegeErrorRecuperarSenha($msg) {
+
+		$_SESSION[Message::MESSEGE_ERRO_RECUPERAR_SENHA] = $msg;
+
+	}
+	public static function setMessegeSucessoRecuperarSenha($msg) {
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_RECUPERAR_SENHA] = $msg;
+		
+	}
+
+	public static function getMessageErrorRecuperarSenha(){
+
+		$msg = (isset($_SESSION[Message::MESSEGE_ERRO_RECUPERAR_SENHA])) ? $_SESSION[Message::MESSEGE_ERRO_RECUPERAR_SENHA] : '';
+
+		Message::clearMessageRecuperarSenhaErro();
+
+		return $msg;
+
+	}
+	public static function getMessageSucessoRecuperarSenha(){
+
+
+
+		$msg = (isset($_SESSION[Message::MESSAGEM_SUCESSO_RECUPERAR_SENHA])) ? $_SESSION[Message::MESSAGEM_SUCESSO_RECUPERAR_SENHA] : '';
+
+		Message::clearMessageRecuperarSenhaSucesso();
+
+		return $msg;
+		
+	}
+
+	public static function clearMessageRecuperarSenhaErro(){
+
+		$_SESSION[Message::MESSEGE_ERRO_RECUPERAR_SENHA] = NULL;
+
+	}
+
+	public static function clearMessageRecuperarSenhaSucesso(){
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_RECUPERAR_SENHA] = NULL;
+
+	}
+
+	//FIM MESSAM DE ERRO E SUCESSO RecuperarSenha
 
 }
 ?>

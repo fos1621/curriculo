@@ -1,4 +1,8 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="page-1">
+<?php if(!class_exists('Rain\Tpl')){exit;}?>
+<div class="btn-imprime centralize">
+	<button id="print" class="btn-login-1">Imprimir Curriculo</button>
+</div>
+<div class="page-1">
 
 	<div class="nome-pessoa-1">
 		<h1><?php echo htmlspecialchars( $pessoa["nomepessoa"], ENT_COMPAT, 'UTF-8', FALSE ); ?> <?php echo htmlspecialchars( $pessoa["sobrenomepessoa"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h1>
@@ -50,7 +54,7 @@
 			<p>
 				<span><?php if( $conclusao == NULL ){ ?> Conclusão: <?php }else{ ?> <?php echo htmlspecialchars( $conclusao, ENT_COMPAT, 'UTF-8', FALSE ); ?>: </span> <?php } ?><?php echo htmlspecialchars( $formacaoDescricao, ENT_COMPAT, 'UTF-8', FALSE ); ?> / 
 
-				<span>Instituição: </span><?php echo htmlspecialchars( $formacaoAcademica["instituicao"], ENT_COMPAT, 'UTF-8', FALSE ); ?> / 
+				<span>Instituição: </span><?php echo utf8_en($formacaoAcademica["instituicao"]); ?> / 
 
 				<span>Início: </span><?php if( $formacaoAcademica["inicio_formacao_academica"] == '0000-00-00' or $formacaoAcademica["inicio_formacao_academica"] == NULL ){ ?> <?php }else{ ?> <?php echo formatDate($formacaoAcademica["inicio_formacao_academica"]); ?> <?php } ?> /  
 
@@ -69,7 +73,7 @@
 		<div class="row">
 			<ul class="list">
 				<?php $counter1=-1;  if( isset($habilidade) && ( is_array($habilidade) || $habilidade instanceof Traversable ) && sizeof($habilidade) ) foreach( $habilidade as $key1 => $value1 ){ $counter1++; ?>
-					<li><?php echo htmlspecialchars( $value1["habilidade"], ENT_COMPAT, 'UTF-8', FALSE ); ?></li>
+					<li><?php echo utf8_de($value1["habilidade"]); ?></li>
 				<?php } ?>
 			</ul>
 		</div>
@@ -92,7 +96,7 @@
 		<div class="row">
 			<ul class="list">
 				<?php $counter1=-1;  if( isset($experiencias) && ( is_array($experiencias) || $experiencias instanceof Traversable ) && sizeof($experiencias) ) foreach( $experiencias as $key1 => $value1 ){ $counter1++; ?>
-					<li><span>Empresa: </span><?php echo htmlspecialchars( $value1["empresa_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?> | <span>Cargo: </span><?php echo htmlspecialchars( $value1["cargo_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?> | <span>Início: </span><?php echo formatDate($value1["inicio_experiencias"]); ?> <?php if( $value1["fim_experiencias"] == '0000-00-00' ){ ?> | Atualmente <?php }else{ ?>| <span>Fim: </span><?php echo formatDate($value1["fim_experiencias"]); ?><?php } ?></li>
+					<li><span>Empresa: </span><?php echo utf8_de($value1["empresa_experiencias"]); ?> | <span>Cargo: </span><?php echo utf8_de($value1["cargo_experiencias"]); ?> | <span>Início: </span><?php echo formatDate($value1["inicio_experiencias"]); ?> <?php if( $value1["fim_experiencias"] == '0000-00-00' ){ ?> | Atualmente <?php }else{ ?>| <span>Fim: </span><?php echo formatDate($value1["fim_experiencias"]); ?><?php } ?></li>
 				<?php } ?>
 			</ul>
 		</div>
@@ -104,5 +108,6 @@
 			<?php } ?>
 		</div> -->
 	</div>
+
 
 </div>

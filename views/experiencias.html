@@ -35,6 +35,24 @@
 	<br class="clear">
 
 	<div class="cad-dados-pessoas">
+		{if="$experiencias['id_pessoa'] == $idPessoa && $experiencias !== NULL"}
+			{loop="$temExp"}
+				<div class="for-expe">
+					<div class="experiencia-item">
+						<p><span>Empresa: </span>{$value.empresa_experiencias} | <span>Cargo: </span>{$value.cargo_experiencias}</p>
+
+						<a rel="nofollow" href="/experiencias/{$value.id_experiencias}/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
+
+						<a rel="nofollow" href="/experiencias/{$value.id_experiencias}/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
+					</div>
+				</div>
+			{/loop}
+		{/if}
+
+		<br class="clear">
+		<br class="clear">
+		<br class="clear">
+		
 		<form role="form" action="/experiencias" method="post" class="form-expe">
 
 		  	<div class="form-group">
@@ -56,22 +74,5 @@
 
 		  	<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
-
-		<br class="clear">
-		<br class="clear">
-		<br class="clear">
-		{if="$experiencias['id_pessoa'] == $idPessoa && $experiencias !== NULL"}
-			{loop="$temExp"}
-				<div class="for-expe">
-					<div class="experiencia-item">
-						<p><span>Empresa: </span>{$value.empresa_experiencias} | <span>Cargo: </span>{$value.cargo_experiencias}</p>
-
-						<a rel="nofollow" href="/experiencias/{$value.id_experiencias}/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
-
-						<a rel="nofollow" href="/experiencias/{$value.id_experiencias}/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
-					</div>
-				</div>
-			{/loop}
-		{/if}
 	</div>
 </div>

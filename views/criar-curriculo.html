@@ -70,36 +70,36 @@
 
 <div class="wrapper">
 	<ul class="thumb">
-		<li>
-			<a rel="nofollow" href="/dados-pessoais" alt="Dados pessoais"><h2>Dados pessoais</h2></a>
+		<li class="dados-pessoais">
+			<a rel="nofollow" href="/dados-pessoais" alt="Dados pessoais" style="display: none;"><h2>Dados pessoais</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/endereco" alt="Endereço"><h2>Endereço</h2></a>
+		<li class="endereco">
+			<a rel="nofollow" href="/endereco" alt="Endereço" style="display: none;"><h2>Endereço</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/telefone" alt="Telefone"><h2>Telefone</h2></a>
+		<li class="telefone">
+			<a rel="nofollow" href="/telefone" alt="Telefone" style="display: none;"><h2>Telefone</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/nascionalidade" alt="Nascionalidade"><h2>Nascionalidade</h2></a>
+		<li class="nascionalidade">
+			<a rel="nofollow" href="/nascionalidade" alt="Nascionalidade" style="display: none;"><h2>Nascionalidade</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/habilidades" alt="Habilidades"><h2>Habilidades</h2></a>
+		<li class="habilidades">
+			<a rel="nofollow" href="/habilidades" alt="Habilidades" style="display: none;"><h2>Habilidades</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/area-interesse" alt="Área de Interesse"><h2>Área de Interesse</h2></a>
+		<li class="area-interesse">
+			<a rel="nofollow" href="/area-interesse" alt="Área de Interesse" style="display: none;"><h2>Área de Interesse</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/formacao-academica" alt="Formação academica"><h2>Formação academica</h2></a>
+		<li class="formacao-academica">
+			<a rel="nofollow" href="/formacao-academica" alt="Formação academica" style="display: none;"><h2>Formação academica</h2></a>
 		</li>
 
-		<li>
-			<a rel="nofollow" href="/experiencias" alt="Experiência(s)"><h2>Experiência(s)</h2></a>
+		<li class="experiencias">
+			<a rel="nofollow" href="/experiencias" alt="Experiência(s)" style="display: none;"><h2>Experiência(s)</h2></a>
 		</li>
 	</ul>
 </div>

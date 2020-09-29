@@ -51,9 +51,9 @@
 		<br class="clear">
 		<br class="clear">
 		<br class="clear">
+				<div class="min-hab">
 		<?php if( $habili['id_pessoa'] == $idPessoa && $habili !== NULL ){ ?>
 			<?php $counter1=-1;  if( isset($my_habili) && ( is_array($my_habili) || $my_habili instanceof Traversable ) && sizeof($my_habili) ) foreach( $my_habili as $key1 => $value1 ){ $counter1++; ?>
-				<div class="min-hab">
 					<div class="habilidade-item">
 						<p><?php echo htmlspecialchars( $value1["habilidade"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 
@@ -62,8 +62,8 @@
 						<a rel="nofollow" href="/habilidade/<?php echo htmlspecialchars( $value1["id_habilidades"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
 
 					</div>
-				</div>
 			<?php } ?>
 		<?php } ?>
+				</div>
 	</div>
 </div>

@@ -51,9 +51,9 @@
 		<br class="clear">
 		<br class="clear">
 		<br class="clear">
+				<div class="min-hab">
 		{if="$habili['id_pessoa'] == $idPessoa && $habili !== NULL"}
 			{loop="$my_habili"}
-				<div class="min-hab">
 					<div class="habilidade-item">
 						<p>{$value.habilidade}</p>
 
@@ -62,8 +62,8 @@
 						<a rel="nofollow" href="/habilidade/{$value.id_habilidades}/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
 
 					</div>
-				</div>
 			{/loop}
 		{/if}
+				</div>
 	</div>
 </div>

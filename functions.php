@@ -12,6 +12,10 @@ function formatDate($date){
 	return $myDate;
 }
 
+function utf8_de($date){
+
+	return utf8_decode($date);
+}
 function utf8_en($date){
 
 	return utf8_encode($date);
