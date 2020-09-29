@@ -16,7 +16,7 @@ $app->get('/esqueceu-senha', function() {
 	$senhaNaoEnviada = Message::getMessageErrorRecuperarSenha();
 
 	$page->setTpl("esqueceu-senha", [
-		'senhaEnviada'=>$senhaEnviada,
+		'senhaEnviada'=>$senhaEnviada, 
 		'senhaNaoEnviada'=>$senhaNaoEnviada
 	]);
 
