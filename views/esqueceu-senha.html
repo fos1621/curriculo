@@ -1,24 +1,6 @@
 {include="topo-inicio"}
 
-	{if="$senhaEnviada != ''"}
-		<script>
-			swal({
-				title: "{$senhaEnviada}",
-			  	text: '',
-			  	icon: "success",
-			});
-		</script>
-	{/if}
-
-	{if="$senhaNaoEnviada != ''"}
-		<script>
-			swal({
-				title: "{$senhaNaoEnviada}",
-			  	text: '',
-			  	icon: "error",
-			});
-		</script>
-	{/if}
+	
 
 	<div class="cad-cadastro">
 		<form role="form" action="/esqueceu-senha" method="post">

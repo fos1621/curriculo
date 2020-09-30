@@ -75,7 +75,7 @@ class Mailer {
 		$this->mail->Password = Mailer::PASSWORD;
 
 		//Set who the message is to be sent from
-		$this->mail->setFrom(Mailer::USERNAME, Mailer::NAME_FROM);
+		$this->mail->setFrom(Mailer::USERNAME, utf8_decode(Mailer::NAME_FROM));
 
 		//Set an alternative reply-to address
 		//$this->mail->addReplyTo('replyto@example.com', 'First Last');
@@ -84,10 +84,22 @@ class Mailer {
 		$this->mail->addAddress($toAddress, $toName);
 
 		//Set the subject line
-		$this->mail->Subject = $subject;
+		$this->mail->Subject = utf8_decode($subject);
 
 		//Read an HTML message body from an external file, convert referenced images to embedded,
 		//convert HTML into a basic plain-text alternative body
+
+		$html = '<!DOCTYPE html>
+		<html>
+		<head>
+			<title></title>
+		</head>
+		<body>
+			<h1>'.$data["link"].'</h1>
+		</body>
+		</html>';
+
+
 		$this->mail->msgHTML($html);
 
 		//Replace the plain text body with one created manually

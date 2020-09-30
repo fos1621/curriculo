@@ -26,7 +26,24 @@ $app->post('/esqueceu-senha', function() {
 
 	$mail = Email::getRecuperarSenha($_POST['emailusuario'], false);
 
-	$page->setTpl("esqueceu-senha");
+	header('Location: /esqueceu-senha');
+	exit;
+
+});
+
+$app->get('/recuperar-senha/recuperar', function() {
+
+	$mail = Email::validarRecuperarSenha($_GET['code']);
+
+	var_dump($mail);
+	exit;
+
+	$page = new Page();
+
+	$page->setTpl('esqueceu-senha', [
+		'nome'=>$mail['nomepessoa'],
+		'code'=>$mail['code']
+	]);
 
 });
 

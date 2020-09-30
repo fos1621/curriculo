@@ -67,9 +67,9 @@ class Email extends Model{
 
 				} else {
 
-					$link = "http://www.curriculo.com.br/esqueceu-senha/recuperar?code=$code";
+					$link = "http://www.curriculo.com.br/recuperar-senha/recuperar?code=$code";
 					
-				}				
+				}
 
 				$mailer = new Mailer($data['emailusuario'], $data['nomepessoa'], "Redefinir senha de Currículo", "esqueceu-senha", array(
 					"name"=>$data['nomepessoa'],
@@ -80,8 +80,8 @@ class Email extends Model{
 
 				if($link == true){
 
-					return $link;
 					Message::setMessegeSucessoRecuperarSenha('Verifique sua caixa de email.');
+					return $link;
 					header('Location: /esqueceu-senha');
 					exit;
 
@@ -102,32 +102,38 @@ class Email extends Model{
 
 		$code = base64_decode($code);
 
-		$idrecovery = openssl_decrypt($code, 'AES-128-CBC', pack("a16", Email::SECRET), 0, pack("a16", Email::SECRET_IV));
+		$id_recuperar_senha = openssl_decrypt($code, 'AES-128-CBC', pack("a16", Email::SECRET), 0, pack("a16", Email::SECRET_IV));
 
 		$sql = new Sql();
 
 		$results = $sql->select("
 			SELECT *
-			FROM tb_userspasswordsrecoveries a
-			INNER JOIN tb_users b USING(iduser)
-			INNER JOIN tb_persons c USING(idperson)
+			FROM tb_recuperar_senha a
+			INNER JOIN tb_user b USING(id_usuario)
+			INNER JOIN tb_pessoa c USING(id_pessoa)
 			WHERE
-				a.idrecovery = :idrecovery
+				a.id_recuperar_senha = :id_recuperar_senha
 				AND
-				a.dtrecovery IS NULL
+				a.id_recuperar_senha IS NULL
 				AND
 				DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();
 		", array(
-			":idrecovery"=>$idrecovery
+			":id_recuperar_senha"=>$id_recuperar_senha
 		));
+
+		var_dump($results);
+		exit;
 
 		if (count($results) === 0)
 		{
-			throw new \Exception("Não foi possível recuperar a senha.");
+			Message::setMessegeErrorRecuperarSenha("Não foi possível recuperar a senha.");
+			header('Location: /recuperar-senha');
+			exit;
 		}
 		else
 		{
 
+			Message::setMessegeSucessoRecuperarSenha('Verifique sua caixa de email.');
 			return $results[0];
 
 		}
