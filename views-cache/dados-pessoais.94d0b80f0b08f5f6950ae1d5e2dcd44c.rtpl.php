@@ -76,11 +76,11 @@
 		<form role="form" action="/dados-pessoais/up" method="post">
 		  	<div class="form-group">
 			    <label for="nomepessoa">Nome</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $dadosP["nomepessoa"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="nomepessoa" name="nomepessoa" required autofocus>
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $nomePessoa, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="nomepessoa" name="nomepessoa" required autofocus>
 		  	</div>
 		  	<div class="form-group">
 			    <label for="sobrenomepessoa">Sobrenome</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $dadosP["sobrenomepessoa"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="sobrenomepessoa" name="sobrenomepessoa" required>
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $sobrenomepessoa, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="sobrenomepessoa" name="sobrenomepessoa" required>
 		  	</div>
 		  	<div class="form-check">
 		  		<?php if( $dadosP['sexopessoa'] === 'M' ){ ?>

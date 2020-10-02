@@ -20,6 +20,7 @@ $app->get('/experiencias', function() {
 	$page = new Page();
 
 	$page->setTpl('experiencias', [
+		'logradouro_endereco'=>utf8_encode($temEndereco["logradouro_endereco"]),
 		'experiencias'=>$experiencias,
 		'idPessoa'=>$idPessoa,
 		'temExp'=>$temExp,

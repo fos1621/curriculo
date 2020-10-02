@@ -42,12 +42,12 @@ class DadosPessoa extends Model{
 		// $datadenascimento = date("d-m-Y", strtotime($_POST['datanascimentopessoa']));
 
 		$results = $sql->select("CALL salvar_pessoa(:nomepessoa, :sobrenomepessoa, :sexopessoa, :datanascimentopessoa, :id_usuario, :estado_civil)", array(
-			":nomepessoa"=>utf8_encode($_POST['nomepessoa']),
-			":sobrenomepessoa"=>utf8_encode($_POST['sobrenomepessoa']),
+			":nomepessoa"=>utf8_decode($_POST['nomepessoa']),
+			":sobrenomepessoa"=>utf8_decode($_POST['sobrenomepessoa']),
 			":sexopessoa"=>$_POST['sexopessoa'],
 			":datanascimentopessoa"=>$_POST['datanascimentopessoa'],
 			":id_usuario"=>Login::getSessionUserId(),
-			":estado_civil"=>utf8_encode($_POST['estado_civil'])
+			":estado_civil"=>utf8_decode($_POST['estado_civil'])
 		));
 
 		// var_dump(count($results[0]) > 0);
@@ -78,12 +78,12 @@ class DadosPessoa extends Model{
 
 		$results = $sql->select("CALL up_pessoa(:nomepessoa, :sobrenomepessoa, :sexopessoa, :datanascimentopessoa, :id_usuario, :estado_civil)",
 			array(
-			":nomepessoa"=>utf8_encode($_POST['nomepessoa']),
-			":sobrenomepessoa"=>utf8_encode($_POST['sobrenomepessoa']),
+			":nomepessoa"=>utf8_decode($_POST['nomepessoa']),
+			":sobrenomepessoa"=>utf8_decode($_POST['sobrenomepessoa']),
 			":sexopessoa"=>$_POST['sexopessoa'],
 			":datanascimentopessoa"=>$_POST['datanascimentopessoa'],
 			":id_usuario"=>Login::getSessionUserId(),
-			":estado_civil"=>utf8_encode($_POST['estado_civil'])
+			":estado_civil"=>utf8_decode($_POST['estado_civil'])
 		));
 		// var_dump($_POST);
 		// var_dump($_POST['sobrenomepessoa']);

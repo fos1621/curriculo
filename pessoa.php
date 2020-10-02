@@ -23,10 +23,11 @@ $app->get("/dados-pessoais", function(){
 	$getMessageDadosPessoaisErrorSexoPessoa = Message::getMessageErrorPessoa();
 	$getMessageDadosPessoaisErrorEstadoCivil = Message::getMessageErrorPessoa();
 
-
 	$page = new Page();
 
 	$page->setTpl('/dados-pessoais', [
+		'nomePessoa'=>utf8_encode($dadosPessoa["nomepessoa"]),
+		'sobrenomepessoa'=>utf8_encode($dadosPessoa["sobrenomepessoa"]),
 		'dadosP'=>$dadosPessoa,
 		'iduser'=>$idUser,
 		'getMessageDadosPessoaisError'=>$getMessageDadosPessoaisError,

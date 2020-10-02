@@ -76,6 +76,104 @@
     margin: 0 auto;
     padding: 15px;
 }
+.btn {
+    background: #1a4780;
+    color: #FFFFFF;
+    padding: 7px 23px;
+    margin: 10px auto;
+    border-radius: 7px;
+}
+.btn:hover{
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #1a4780;
+}
+.grid {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.grid:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*[class*="col-"] {
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+}*/
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+}
+.col-1 {
+    width: 8.33%;
+    padding: 10px;
+}
+
+.col-2 {
+    width: 16.66%;
+    padding: 10px;
+}
+
+.col-3 {
+    width: 25%;
+    padding: 10px;
+}
+
+.col-4 {
+    width: 33.33%;
+    padding: 10px;
+}
+
+.col-5 {
+    width: 41.66%;
+    padding: 10px;
+}
+
+.col-6 {
+    width: 50%;
+    padding: 10px;
+}
+
+.col-7 {
+    width: 58.33%;
+    padding: 10px;
+}
+
+.col-8 {
+    width: 66.66%;
+    padding: 10px;
+}
+
+.col-9 {
+    width: 75%;
+    padding: 10px;
+}
+
+.col-10 {
+    width: 83.33%;
+    padding: 10px;
+}
+
+.col-11 {
+    width: 91.66%;
+    padding: 10px;
+}
+
+.col-12 {
+    width: 100%;
+    padding: 10px;
+}
 a{
     text-decoration: none;
 }
@@ -223,10 +321,13 @@ header #menu2 .dropdown-meu:hover .sub-menu li a {
     display: flex;
 }
 .breadCrumb svg {
-    margin-top: 4%;
+    margin-top: 11px;
 }
 .breadCrumb.alterar svg {
     margin-top: 3%;
+}
+.contato .breadCrumb svg {
+    margin-top: 11px;
 }
 /*Fim pagina BreadCrumb*/
 
@@ -501,3 +602,27 @@ header #menu2 a:hover {
     border-radius: 5px;
 }
 /*Fim pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina inicio e login*/
+
+
+/*Home - InÃƒÂ­cio*/
+.bg-home {
+    background: url(../../res/img/banner-01.jpg);
+    background-size: cover;
+    height: 548px;
+    background-repeat: no-repeat;
+}
+.titulo-page {
+    background: #cccccc2b;
+}
+.entre-em-contato {
+    background: #1a478099;
+    padding: 18px;
+    border-radius: 12px;
+}
+.contato-home {
+    background: #f7f7f7;
+}
+.entre-em-contato h2 {
+    padding: 9px 14px;
+}
+/*Home - InÃƒÂ­cio*/

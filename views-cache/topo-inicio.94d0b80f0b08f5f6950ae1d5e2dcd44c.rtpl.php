@@ -18,6 +18,12 @@
               <a class="login-menu-inicio" href="/">Início <span class="sr-only">(current)</span></a>
             </li>
             <li class="dropdown-meu">
+              <a class="login-menu-inicio" href="/como-funciona">Como funciona</a>
+            </li>
+            <li class="dropdown-meu">
+              <a class="login-menu-inicio" href="/sugestao">Sugestão</a>
+            </li>
+            <li class="dropdown-meu">
               <a class="login-menu-inicio" href="/login">login <span class="sr-only">(current)</span></a>
             </li>
             <!-- <li>

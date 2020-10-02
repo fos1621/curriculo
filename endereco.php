@@ -25,6 +25,11 @@ $app->get('/endereco', function(){
 	$page = new Page();
 
 	$page->setTpl('endereco', [
+		'logradouro_endereco'=>utf8_encode($temEndereco["logradouro_endereco"]),
+		'cidade_endereco'=>utf8_encode($temEndereco["cidade_endereco"]),
+		'estado_endereco'=>utf8_encode($temEndereco["estado_endereco"]),
+		'complemento'=>utf8_encode($temEndereco["complemento"]),
+		'bairro_endereco'=>utf8_encode($temEndereco["bairro_endereco"]),
 		'endereco'=>$temEndereco,
 		'idPessoa'=>$idPessoa,
 		'messageErroEnderecoInformeCepValido'=>$messageErroEnderecoInformeCepValido,

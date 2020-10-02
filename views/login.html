@@ -40,6 +40,16 @@
 			});
 		</script>
 	{/if}
+	
+	{if="$messegeSucessoSenhaAlterada != ''"}
+		<script>
+			swal({
+				title: "Parabéns!",
+			  	text: '{$messegeSucessoSenhaAlterada}',
+			  	icon: "success",
+			});
+		</script>
+	{/if}
 
 
 

@@ -27,6 +27,8 @@ require_once("visualizar-curriculo.php");
 require_once("area-interesse.php");
 require_once("formacao-academica.php");
 require_once("experiencias.php");
+require_once("sugestao.php");
+require_once("como-funciona.php");
 
 
 $app->get('/', function() {

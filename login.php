@@ -17,12 +17,14 @@ $app->get('/login', function() {
 	$messegeErrorPreenchaEmailUsuario = Message::getMessegeError();
 	$messegeErrorPreenchaSenha = Message::getMessegeError();
 	$messegeSucessoUsuarioCadastrado = Message::getMessageSucessoCadastro();
+	$messegeSucessoSenhaAlterada = Message::getMessageSucessoRecuperarSenha();
 
 	$page->setTpl("login", [
 		'messegeErrorUsuarioInexistente'=>$messegeErrorUsuarioInexistente,
 		'messegeErrorPreenchaEmailUsuario'=>$messegeErrorPreenchaEmailUsuario,
 		'messegeErrorPreenchaSenha'=>$messegeErrorPreenchaSenha,
-		'messegeSucessoUsuarioCadastrado'=>$messegeSucessoUsuarioCadastrado
+		'messegeSucessoUsuarioCadastrado'=>$messegeSucessoUsuarioCadastrado,
+		'messegeSucessoSenhaAlterada'=>$messegeSucessoSenhaAlterada
 	]);
 
 });

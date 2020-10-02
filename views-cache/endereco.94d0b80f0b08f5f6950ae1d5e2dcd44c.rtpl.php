@@ -83,7 +83,7 @@
 
 		  	<div class="form-group">
 			    <label for="logradouro_endereco">Logradouro</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $endereco["logradouro_endereco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="logradouro_endereco" name="logradouro_endereco">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $logradouro_endereco, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="logradouro_endereco" name="logradouro_endereco">
 		  	</div>
 		  	<div class="form-group">
 			    <label for="numero_endereco">Número</label>
@@ -91,19 +91,19 @@
 		  	</div>
 		  	<div class="form-group">
 			    <label for="complemento">Complemento</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $endereco["complemento"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="complemento" name="complemento">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $complemento, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="complemento" name="complemento">
 		  	</div>
 		  	<div class="form-group">
 			    <label for="cidade_endereco">Cidade</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $endereco["cidade_endereco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="cidade_endereco" name="cidade_endereco">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $cidade_endereco, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="cidade_endereco" name="cidade_endereco">
 		  	</div>
 		  	<div class="form-group">
 			    <label for="estado_endereco">Estado</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $endereco["estado_endereco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="estado_endereco" name="estado_endereco">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $estado_endereco, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="estado_endereco" name="estado_endereco">
 		  	</div>
 		  	<div class="form-group">
 			    <label for="bairro_endereco">Bairro</label>
-			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $endereco["bairro_endereco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="bairro_endereco" name="bairro_endereco">
+			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $bairro_endereco, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="bairro_endereco" name="bairro_endereco">
 		  	</div>
 		  	
 		  	<button type="submit" class="btn btn-primary">Alterar</button>

@@ -40,6 +40,16 @@
 			});
 		</script>
 	<?php } ?>
+	
+	<?php if( $messegeSucessoSenhaAlterada != '' ){ ?>
+		<script>
+			swal({
+				title: "Parabéns!",
+			  	text: '<?php echo htmlspecialchars( $messegeSucessoSenhaAlterada, ENT_COMPAT, 'UTF-8', FALSE ); ?>',
+			  	icon: "success",
+			});
+		</script>
+	<?php } ?>
 
 
 
