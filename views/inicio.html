@@ -1,8 +1,20 @@
 {include="topo-inicio"}
 
-	<div class="bg-home">
-		<!-- <img src="/res/img/banner-01.jpg" alt="Curriculo" title="Curriculo"> -->
-	</div>
+	{if="$mensagemSucessoSugestao != ''"}
+		<script>
+			swal({
+				title: "{$mensagemSucessoSugestao}",
+			  	text: 'Obrigado pela sugestão.',
+			  	icon: "success",
+			});
+		</script>
+	{/if}
+
+	<a rel="nofollow" href="/login" title="Login">
+		<div class="bg-home">
+			<!-- <img src="/res/img/banner-01.jpg" alt="Curriculo" title="Curriculo"> -->
+		</div>
+	</a>
 
 	<div class="titulo-page">
 		<div class="wrapper">
@@ -32,6 +44,12 @@
 					<a rel="nofollow" href="/login" alt="Formação academica" style="display: none;"><h2>Formação academica</h2></a>
 				</li>
 			</ul>
+
+			<br class="clear">
+
+			<div class="centralize">
+				<a href="/cadastro" class="btn" title="Saiba mais">Faça seu cadastro</a>
+			</div>
 		</div>
 	</div>
 
@@ -46,7 +64,7 @@
 							<h2>Entre em contato para nos dar sugestões.</h2>
 						</div>
 						<div class="entre-em-contato-home col-3">
-							<a href="/contato" title="Entre em contato" class="btn">Contato</a>
+							<a href="/sugestao" title="Entre em contato" class="btn">Contato</a>
 						</div>
 					</div>
 				</div>

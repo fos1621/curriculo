@@ -109,20 +109,19 @@ class Email extends Model{
 		$results = $sql->select("
 			SELECT *
 			FROM tb_recuperar_senha a
-			INNER JOIN tb_user b USING(id_usuario)
-			INNER JOIN tb_pessoa c USING(id_pessoa)
+			INNER JOIN tb_user b
+            ON a.id_pessoa = b.id_usuario
+			INNER JOIN tb_pessoa c
+            ON b.id_usuario = c.id_usuario
 			WHERE
 				a.id_recuperar_senha = :id_recuperar_senha
 				AND
-				a.id_recuperar_senha IS NULL
+				a.dt_expira IS NULL
 				AND
-				DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();
+				DATE_ADD(a.dt_registro_cadastro, INTERVAL 1 HOUR) >= NOW();
 		", array(
 			":id_recuperar_senha"=>$id_recuperar_senha
 		));
-
-		var_dump($results);
-		exit;
 
 		if (count($results) === 0)
 		{
@@ -134,9 +133,59 @@ class Email extends Model{
 		{
 
 			Message::setMessegeSucessoRecuperarSenha('Verifique sua caixa de email.');
-			return $results[0];
+			return array('results' => $results[0], 'code'=> $code);
 
 		}
+
+	}
+
+	public static function validarRecuperarSenha2($code)	{
+
+		$id_recuperar_senha = openssl_decrypt($code, 'AES-128-CBC', pack("a16", Email::SECRET), 0, pack("a16", Email::SECRET_IV));
+
+		$sql = new Sql();
+
+		$results = $sql->select("
+			SELECT *
+			FROM tb_recuperar_senha a
+			INNER JOIN tb_user b
+            ON a.id_pessoa = b.id_usuario
+			INNER JOIN tb_pessoa c
+            ON b.id_usuario = c.id_usuario
+			WHERE
+				a.id_recuperar_senha = :id_recuperar_senha
+				AND
+				a.dt_expira IS NULL
+				AND
+				DATE_ADD(a.dt_registro_cadastro, INTERVAL 1 HOUR) >= NOW();
+		", array(
+			":id_recuperar_senha"=>$id_recuperar_senha
+		));
+
+		if (count($results) === 0)
+		{
+			Message::setMessegeErrorRecuperarSenha("Não foi possível recuperar a senha.");
+			header('Location: /recuperar-senha');
+			exit;
+		}
+		else
+		{
+
+			Message::setMessegeSucessoRecuperarSenha('Verifique sua caixa de email.');
+			return array('results' => $results[0], 'code'=> $code);
+
+		}
+
+	}
+
+	public static function codigoUsado($id_recuperar_senha)
+	{
+
+		$sql = new Sql();
+
+		$sql->query("CALL sp_up_codigo_usado_tb_recupera_senha(:id_recuperar_senha)", array(
+			":id_recuperar_senha"=>$id_recuperar_senha
+		));
 
 	}
 

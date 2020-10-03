@@ -20,7 +20,6 @@ $app->get('/experiencias', function() {
 	$page = new Page();
 
 	$page->setTpl('experiencias', [
-		'logradouro_endereco'=>utf8_encode($temEndereco["logradouro_endereco"]),
 		'experiencias'=>$experiencias,
 		'idPessoa'=>$idPessoa,
 		'temExp'=>$temExp,
@@ -68,6 +67,8 @@ $app->get('/experiencias/:id_experiencias/alterar', function($id_experiencias){
 	]);
 
 	$page->setTpl('alterar-experiencia', [
+		'empresa_experiencias'=>utf8_encode($retornaExperiencia["empresa_experiencias"]),
+		'cargo_experiencias'=>utf8_encode($retornaExperiencia["cargo_experiencias"]),
 		'retornaExperiencia'=>$retornaExperiencia
 	]);
 

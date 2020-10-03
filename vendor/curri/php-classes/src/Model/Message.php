@@ -17,6 +17,10 @@ class Message extends Model{
 	const MESSAGEM_SUCESSO_PESSOA = 'SucessoEndereco';
 	const MESSEGE_ERRO_RECUPERAR_SENHA = 'ErroRecuperarSenha';
 	const MESSAGEM_SUCESSO_RECUPERAR_SENHA = 'SucessoRecuperarSenha';
+	const MESSEGE_ERRO_SUGESTAO = 'ErroSugestao';
+	const MESSAGEM_SUCESSO_SUGESTAO = 'SucessoSugestao';
+
+
 
 
 	//INÍCIO MESSAM DE ERRO CADASTRO EXISTE LOGIN
@@ -263,6 +267,62 @@ class Message extends Model{
 	}
 
 	//FIM MESSAM DE ERRO E SUCESSO RecuperarSenha
+
+
+
+
+
+
+
+
+
+	//INÍCIO MESSAM DE ERRO E SUCESSO Sugestao
+
+	public static function setMessegeErrorSugestao($msg) {
+
+		$_SESSION[Message::MESSEGE_ERRO_SUGESTAO] = $msg;
+
+	}
+	public static function setMessegeSucessoSugestao($msg) {
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_SUGESTAO] = $msg;
+		
+	}
+
+	public static function getMessageErrorSugestao(){
+
+		$msg = (isset($_SESSION[Message::MESSEGE_ERRO_SUGESTAO])) ? $_SESSION[Message::MESSEGE_ERRO_SUGESTAO] : '';
+
+		Message::clearMessageSugestaoErro();
+
+		return $msg;
+
+	}
+	public static function getMessageSucessoSugestao(){
+
+
+
+		$msg = (isset($_SESSION[Message::MESSAGEM_SUCESSO_SUGESTAO])) ? $_SESSION[Message::MESSAGEM_SUCESSO_SUGESTAO] : '';
+
+		Message::clearMessageSugestaoSucesso();
+
+		return $msg;
+		
+	}
+
+	public static function clearMessageSugestaoErro(){
+
+		$_SESSION[Message::MESSEGE_ERRO_SUGESTAO] = NULL;
+
+	}
+
+	public static function clearMessageSugestaoSucesso(){
+
+		$_SESSION[Message::MESSAGEM_SUCESSO_SUGESTAO] = NULL;
+
+	}
+
+	//FIM MESSAM DE ERRO E SUCESSO Sugestao
 
 }
 ?>

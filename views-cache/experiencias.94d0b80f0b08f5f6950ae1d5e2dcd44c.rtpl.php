@@ -39,7 +39,7 @@
 			<?php $counter1=-1;  if( isset($temExp) && ( is_array($temExp) || $temExp instanceof Traversable ) && sizeof($temExp) ) foreach( $temExp as $key1 => $value1 ){ $counter1++; ?>
 				<div class="for-expe">
 					<div class="experiencia-item">
-						<p><span>Empresa: </span><?php echo htmlspecialchars( $value1["empresa_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?> | <span>Cargo: </span><?php echo htmlspecialchars( $value1["cargo_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+						<p><span>Empresa: </span><?php echo utf8_en($value1["empresa_experiencias"]); ?> | <span>Cargo: </span><?php echo utf8_en($value1["cargo_experiencias"]); ?></p>
 
 						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
 

@@ -15,16 +15,19 @@
       <nav id="menu2">
           <ul>
             <li class="dropdown-meu">
-              <a class="login-menu-inicio" href="/">Início <span class="sr-only">(current)</span></a>
+              <a class="login-menu-inicio" href="/" title="Início">Início</a>
             </li>
             <li class="dropdown-meu">
-              <a class="login-menu-inicio" href="/como-funciona">Como funciona</a>
+              <a class="login-menu-inicio" href="/como-funciona" title="Como funciona">Como funciona</a>
             </li>
             <li class="dropdown-meu">
-              <a class="login-menu-inicio" href="/sugestao">Sugestão</a>
+              <a class="login-menu-inicio" href="/sugestao" title="Sugestão">Sugestão</a>
             </li>
             <li class="dropdown-meu">
-              <a class="login-menu-inicio" href="/login">login <span class="sr-only">(current)</span></a>
+              <a class="login-menu-inicio" href="/login" title="Login">Login</a>
+            </li>
+            <li class="dropdown-meu">
+              <a class="login-menu-inicio" href="/cadastro" title="Cadastro">Cadastro</a>
             </li>
             <!-- <li>
               <a class="nav-link" href="/visualizar-curriculo">Visualizar currículo <span class="sr-only">(current)</span></a>

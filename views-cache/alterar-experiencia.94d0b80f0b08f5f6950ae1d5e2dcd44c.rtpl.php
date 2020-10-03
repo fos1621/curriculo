@@ -23,11 +23,11 @@
 		<form role="form" action="/experiencias-up/<?php echo htmlspecialchars( $retornaExperiencia["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post" class="form-expe">
 		  	<div class="form-group">
 			    <label for="empresa_experiencias">Nome da Empresa</label>
-			    <input type="text" class="form-control" id="empresa_experiencias" value="<?php echo htmlspecialchars( $retornaExperiencia["empresa_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="empresa_experiencias" required autofocus>
+			    <input type="text" class="form-control" id="empresa_experiencias" value="<?php echo htmlspecialchars( $empresa_experiencias, ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="empresa_experiencias" required autofocus>
 		  	</div>
 		  	<div class="form-group">
 			    <label for="cargo_experiencias">Cargo ocupado</label>
-			    <input type="text" class="form-control" id="cargo_experiencias" value="<?php echo htmlspecialchars( $retornaExperiencia["cargo_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="cargo_experiencias" required>
+			    <input type="text" class="form-control" id="cargo_experiencias" value="<?php echo htmlspecialchars( $cargo_experiencias, ENT_COMPAT, 'UTF-8', FALSE ); ?>" name="cargo_experiencias" required>
 		  	</div>
 		  	<div class="form-group">
 			    <label for="inicio_experiencias">Início da experiência</label>

@@ -35,12 +35,16 @@ $app->get('/', function() {
 	
 	// Login::verifyLogin(false);
 
+	$mensagemSucessoSugestao = Message::getMessageSucessoSugestao();
+
 	$page = new Page([
 		'header'=>false,
 		'footer'=>false
 	]);
 
-	$page->setTpl("inicio");
+	$page->setTpl("inicio", [
+		'mensagemSucessoSugestao'=>$mensagemSucessoSugestao
+	]);
 
 });
 

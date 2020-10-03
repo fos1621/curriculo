@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="res/css/style.css">
-  <link rel="stylesheet" href="res/css/all.css">
-  <script src="res/js/sweetalert.js"></script>
+  <link rel="stylesheet" href="../../res/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../res/css/style.css">
+  <link rel="stylesheet" href="../../res/css/all.css">
+  <script src="../../res/js/sweetalert.js"></script>
 </head>
 <body>
   <header>

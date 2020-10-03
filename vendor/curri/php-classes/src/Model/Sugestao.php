@@ -2,7 +2,7 @@
 
 namespace Curri\Model;
 
-use \Curri\Mailer;
+use \Curri\Sugestoes;
 use \Curri\Model;
 use \Curri\DB\Sql;
 use \Curri\Model\Login;
@@ -10,8 +10,8 @@ use \Curri\Model\Message;
 
 class Sugestao extends Model{
 
-	const SECRET_IV = "CurriculoPhp7_Secret_IV";
-	const SECRET = "CurriculoPhp7_Secret";
+	const SECRET_IV = "SugestaoCurriculoPhp7_Secret_IV";
+	const SECRET = "SugestaoCurriculoPhp7_Secret";
 
 	public static function salvarSugestao($nome, $email, $sugestao){
 
@@ -23,134 +23,37 @@ class Sugestao extends Model{
 			':sugestao'=>$sugestao
 		]);
 
+		if (count($results) === 0) {
 
-
-	}
-
-	public static function getRecuperarSenha($email, $inadmin = true) {
-
-		$sql = new Sql();
-
-		$results = $sql->select("
-			SELECT * 
-			FROM tb_user a 
-			INNER JOIN tb_pessoa b
-            ON a.id_usuario = b.id_pessoa
-			WHERE a.emailusuario = :email;
-		", array(
-			":email"=>$email
-		));
-
-		if (count($results) === 0)
-		{
-
-			Message::setMessegeErrorRecuperarSenha('Email não existe ou não está cadastrado.');
-			header('Location: /recuperar-senha');
+			Message::setMessegeErrorSugestao('Email não envidado.');
+			header('Location: /sugestao');
 			exit;
 
-		}
-		else
-		{
+		}else{
 
-			$data = $results[0];
-
-			$results2 = $sql->select("CALL sp_salvar_recuperar_senha(:id_pessoa)", array(
-				":id_pessoa"=>$data["id_usuario"]
+			$mailer = new Sugestoes('', $results[0]['nome_pessoa'], "Sugestão do usuário", "inicio", array(
+				"nome_pessoa"=>utf8_decode($results[0]['nome_pessoa']),
+				"email_pessoa"=>utf8_decode($results[0]['email_pessoa']),
+				"sujestao_pessoa"=>utf8_decode($results[0]['sujestao_pessoa'])
 			));
 
-			if (count($results2) === 0)
-			{
+			// var_dump($mailer == true);
+			// exit;
 
-				Message::setMessegeErrorRecuperarSenha('Nâo foi possível recuperar senha, contate o administrador do sistema.');
-				header('Location: /recuperar-senha');
-				exit;
-
-			}
-			else
-			{
-
-				$dataRecovery = $results2[0];
-
-				$code = openssl_encrypt($dataRecovery['id_recuperar_senha'], 'AES-128-CBC', pack("a16", Email::SECRET), 0, pack("a16", Email::SECRET_IV));
-
-				$code = base64_encode($code);
-
-				if ($inadmin === true) {
-
-					$link = "http://www.curriculo.com.br/admin/forgot/recuperar?code=$code";
-
-				} else {
-
-					$link = "http://www.curriculo.com.br/recuperar-senha/recuperar?code=$code";
-					
-				}
-
-				$mailer = new Mailer($data['emailusuario'], $data['nomepessoa'], "Redefinir senha de Currículo", "esqueceu-senha", array(
-					"name"=>$data['nomepessoa'],
-					"link"=>$link
-				));				
-
+			if($mailer == true) {
+				Message::setMessegeSucessoSugestao('Email enviado com sucesso.');
+				header('Location: /');
 				$mailer->send();
-
-				if($link == true){
-
-					Message::setMessegeSucessoRecuperarSenha('Verifique sua caixa de email.');
-					return $link;
-					header('Location: /esqueceu-senha');
-					exit;
-
-				}else{
-					Message::setMessegeErrorRecuperarSenha('Nâo foi possível recuperar senha, contate o administrador do sistema.');
-					header('Location: /recuperar-senha');
-					exit;
-				}
-
-
+				exit;
+			}else{
+				Message::setMessegeErrorSugestao('Email não envidado.');
+				header('Location: /sugestao');
+				exit;
 			}
 
-		}
-
-	}
-
-	public static function validarRecuperarSenha($code)	{
-
-		$code = base64_decode($code);
-
-		$id_recuperar_senha = openssl_decrypt($code, 'AES-128-CBC', pack("a16", Email::SECRET), 0, pack("a16", Email::SECRET_IV));
-
-		$sql = new Sql();
-
-		$results = $sql->select("
-			SELECT *
-			FROM tb_recuperar_senha a
-			INNER JOIN tb_user b USING(id_usuario)
-			INNER JOIN tb_pessoa c USING(id_pessoa)
-			WHERE
-				a.id_recuperar_senha = :id_recuperar_senha
-				AND
-				a.id_recuperar_senha IS NULL
-				AND
-				DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();
-		", array(
-			":id_recuperar_senha"=>$id_recuperar_senha
-		));
-
-		var_dump($results);
-		exit;
-
-		if (count($results) === 0)
-		{
-			Message::setMessegeErrorRecuperarSenha("Não foi possível recuperar a senha.");
-			header('Location: /recuperar-senha');
-			exit;
-		}
-		else
-		{
-
-			Message::setMessegeSucessoRecuperarSenha('Verifique sua caixa de email.');
-			return $results[0];
 
 		}
+
 
 	}
 

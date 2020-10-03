@@ -35,7 +35,7 @@ $app->get('/recuperar-senha/recuperar', function() {
 
 	$mail = Email::validarRecuperarSenha($_GET['code']);
 
-	// var_dump($mail["results"]['nomepessoa']);
+	// var_dump($mail['results']['nomepessoa']);
 	// var_dump($mail['code']);
 	// exit;
 
@@ -48,7 +48,7 @@ $app->get('/recuperar-senha/recuperar', function() {
 	]);
 
 	$page->setTpl('recuperar-senha', [
-		'nome'=>$mail["results"]['nomepessoa'],
+		'nome'=>utf8_decode($mail["results"]['nomepessoa']),
 		'code'=>$mail['code'],
 		'corrigirSenha'=>$corrigirSenha
 	]);

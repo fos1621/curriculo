@@ -39,7 +39,7 @@
 			{loop="$temExp"}
 				<div class="for-expe">
 					<div class="experiencia-item">
-						<p><span>Empresa: </span>{$value.empresa_experiencias} | <span>Cargo: </span>{$value.cargo_experiencias}</p>
+						<p><span>Empresa: </span>{function="utf8_en($value.empresa_experiencias)"} | <span>Cargo: </span>{function="utf8_en($value.cargo_experiencias)"}</p>
 
 						<a rel="nofollow" href="/experiencias/{$value.id_experiencias}/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
 
