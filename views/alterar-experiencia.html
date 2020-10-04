@@ -4,9 +4,9 @@
 		<div class="breadCrumb alterar">
 			<span>
 				<i class="fa fa-home"></i>
-				<a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a>
+				<a rel="nofollow" href="/criar-curriculo" title="Criar currículo">Criar currículo</a>
 				<i class="fa fa-angle-double-right"></i>
-				<a rel="nofollow" href="/experiencias" title="Criar currículo"><p>Experiencia</p></a>
+				<a rel="nofollow" href="/experiencias" title="Criar currículo"><span class="title-page">Experiencia</span></a>
 				<i class="fa fa-angle-double-right"></i>
 				<p>Alterar Experiencia</p>
 			</span>
@@ -20,7 +20,7 @@
 	<br class="clear">
 	
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/experiencias-up/{$retornaExperiencia.id_experiencias}" method="post" class="form-expe">
+		<form action="/experiencias-up/{$retornaExperiencia.id_experiencias}" method="post" class="form-expe">
 		  	<div class="form-group">
 			    <label for="empresa_experiencias">Nome da Empresa</label>
 			    <input type="text" class="form-control" id="empresa_experiencias" value="{$empresa_experiencias}" name="empresa_experiencias" required autofocus>

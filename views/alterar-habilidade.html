@@ -4,11 +4,11 @@
 		<div class="breadCrumb alterar">
 			<span>
 				<i class="fa fa-home"></i>
-				<a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a>
+				<a rel="nofollow" href="/criar-curriculo" title="Criar currículo">Criar currículo</a>
 				<i class="fa fa-angle-double-right"></i>
-				<a rel="nofollow" href="/habilidades" title="Criar currículo"><p>Habilidades</p></a>
+				<a rel="nofollow" href="/habilidades" title="Criar currículo"><span class="title-page">Habilidades</span></a>
 				<i class="fa fa-angle-double-right"></i>
-				<p>Alterar Habilidade</p>
+				<span class="title-page">Alterar Habilidade</span>
 			</span>
 		</div>
 		<div class="bread-title">
@@ -20,7 +20,7 @@
 	<br class="clear">
 	
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/habilidades-up/{$habilidade.id_habilidades}" method="post">
+		<form action="/habilidades-up/{$habilidade.id_habilidades}" method="post">
 		  	<div class="form-group">
 			    <label for="habilidade">Habilidades</label>
 			    <input type="text" class="form-control" value="{$habilidade.habilidade}" id="habilidade" name="habilidade">

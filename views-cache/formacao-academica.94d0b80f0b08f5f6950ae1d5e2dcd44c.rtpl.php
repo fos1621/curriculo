@@ -1,7 +1,7 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
 	<div class="bread">
 		<div class="breadCrumb">
-			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Formação acadêmica</p></span>
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo">Criar currículo</a> <i class="fa fa-angle-double-right"></i> <span class="title-page">Formação acadêmica</span></span>
 		</div>
 		<div class="bread-title">
 			<h1>Formação acadêmica</h1>
@@ -26,7 +26,7 @@
 	
 	<?php if( $formacaoAcademica['id_pessoa'] == $idPessoa && $formacaoAcademica !== NULL ){ ?>
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/formacao-academica-up" method="post">
+		<form action="/formacao-academica-up" method="post">
 		  	<div class="form-group">
 			    <label for="formacao_academica">Formação acadêmica</label>
 			    <input type="text" class="form-control" value="<?php echo htmlspecialchars( $formacaoDescricao, ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="formacao_academica" name="formacao_academica" autofocus>
@@ -49,9 +49,9 @@
 		  		<br class="clear">
 			  	<select name="conclusao" id="conclusao" required>
 			  		<?php if( $formacaoAcademica['conclusao'] === '' ){ ?>
-			  			<option selected>Selecione</option>
+			  			<option value="" selected>Selecione</option>
 			  		<?php }else{ ?>
-			  			<option >Selecione</option>
+			  			<option value="">Selecione</option>
 			  		<?php } ?>
 			  		<?php if( $formacaoAcademica['conclusao'] === 'Cursando' ){ ?>
 			  			<option value="Cursando" selected>Cursando</option>
@@ -80,7 +80,7 @@
 	<?php }else{ ?>
 							
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/formacao-academica" method="post">
+		<form action="/formacao-academica" method="post">
 		  	<div class="form-group">
 			    <label for="formacao_academica">Formação acadêmica</label>
 			    <input type="text" class="form-control" id="formacao_academica" name="formacao_academica" autofocus>

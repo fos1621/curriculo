@@ -1,7 +1,7 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
 	<div class="bread">
 		<div class="breadCrumb">
-			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Experiência(s)</p></span>
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo">Criar currículo</a> <i class="fa fa-angle-double-right"></i> <span class="title-page">Experiência(s)</span></span>
 		</div>
 		<div class="bread-title">
 			<h1>Experiência(s)</h1>
@@ -41,9 +41,11 @@
 					<div class="experiencia-item">
 						<p><span>Empresa: </span><?php echo utf8_en($value1["empresa_experiencias"]); ?> | <span>Cargo: </span><?php echo utf8_en($value1["cargo_experiencias"]); ?></p>
 
-						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
-
-						<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
+						<div class="mobile-flex">
+							<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/alterar" class="alterar" title="Alterar Habilidades"><i class="fa fa-edit"></i></a>
+							
+							<a rel="nofollow" href="/experiencias/<?php echo htmlspecialchars( $value1["id_experiencias"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/excluir" class="excluir" title="Alterar Habilidades"><i class="fa fa-window-close"></i></a>
+						</div>
 					</div>
 				</div>
 			<?php } ?>
@@ -53,7 +55,7 @@
 		<br class="clear">
 		<br class="clear">
 		
-		<form role="form" action="/experiencias" method="post" class="form-expe">
+		<form action="/experiencias" method="post" class="form-expe">
 
 		  	<div class="form-group">
 			    <label for="empresa_experiencias">Nome da Empresa</label>

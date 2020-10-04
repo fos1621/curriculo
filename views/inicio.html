@@ -33,15 +33,15 @@
 			<h2 class="text-center">Crie já o seu currículo</h2>
 			<ul class="thumb">
 				<li class="dados-pessoais">
-					<a rel="nofollow" href="/login" alt="Dados pessoais" style="display: none;"><h2>Dados pessoais</h2></a>
+					<a rel="nofollow" href="/login" title="Dados pessoais" style="display: none;"><h2>Dados pessoais</h2></a>
 				</li>
 
 				<li class="nascionalidade">
-					<a rel="nofollow" href="/login" alt="Nascionalidade" style="display: none;"><h2>Nascionalidade</h2></a>
+					<a rel="nofollow" href="/login" title="Nascionalidade" style="display: none;"><h2>Nascionalidade</h2></a>
 				</li>
 
 				<li class="formacao-academica">
-					<a rel="nofollow" href="/login" alt="Formação academica" style="display: none;"><h2>Formação academica</h2></a>
+					<a rel="nofollow" href="/login" title="Formação academica" style="display: none;"><h2>Formação academica</h2></a>
 				</li>
 			</ul>
 
@@ -60,10 +60,10 @@
 			<div class="entre-em-contato">
 				<div class="grid">
 					<div class="row">
-						<div class="col-9">
+						<div class="col-9 col-m-12 centralize">
 							<h2>Entre em contato para nos dar sugestões.</h2>
 						</div>
-						<div class="entre-em-contato-home col-3">
+						<div class="centralize entre-em-contato-home col-3 col-m-12">
 							<a href="/sugestao" title="Entre em contato" class="btn">Contato</a>
 						</div>
 					</div>

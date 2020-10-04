@@ -1,7 +1,7 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
 	<div class="bread">
 		<div class="breadCrumb">
-			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Endereço</p></span>
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo">Criar currículo</a> <i class="fa fa-angle-double-right"></i> <span class="title-page">Endereço</span></span>
 		</div>
 		<div class="bread-title">
 			<h1>Endereço</h1>
@@ -74,7 +74,7 @@
 
 	<?php if( $endereco['id_pessoa'] == $idPessoa && $endereco !== NULL ){ ?>
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/checkout-cep-up" method="post">
+		<form action="/checkout-cep-up" method="post">
 		  	<div class="form-group">
 			    <label for="cep_endereco">CEP</label>
 			    <input type="text" placeholder="00000-000" value="<?php echo htmlspecialchars( $endereco["cep_endereco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="form-control" id="cep_endereco" name="cep_endereco" autofocus required>
@@ -112,7 +112,7 @@
 	<?php }else{ ?>
 							
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/checkout-cep" method="post">
+		<form action="/checkout-cep" method="post">
 		  	<div class="form-group">
 			    <label for="cep_endereco">CEP</label>
 			    <input type="text" placeholder="00000-000"  class="form-control" id="cep_endereco" name="cep_endereco" autofocus required>

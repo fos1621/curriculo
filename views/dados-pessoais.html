@@ -62,7 +62,7 @@
 
 	<div class="bread">
 		<div class="breadCrumb">
-			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo"><p>Criar currículo</p></a> <i class="fa fa-angle-double-right"></i> <p>Dados Pessoais</p></span>
+			<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/criar-curriculo" title="Criar currículo">Criar currículo</a> <i class="fa fa-angle-double-right"></i> <span class="title-page">Dados Pessoais</span></span>
 		</div>
 		<div class="bread-title">
 			<h1>Dados Pessoais</h1>
@@ -73,7 +73,7 @@
 
 	{if="$dadosP['id_usuario'] == $iduser && $dadosP !== NULL"}
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/dados-pessoais/up" method="post">
+		<form action="/dados-pessoais/up" method="post">
 		  	<div class="form-group">
 			    <label for="nomepessoa">Nome</label>
 			    <input type="text" class="form-control" value="{$nomePessoa}" id="nomepessoa" name="nomepessoa" required autofocus>
@@ -88,7 +88,7 @@
 	  			{else}
 	  				<input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="M">
 	  			{/if}
-		  	<label class="form-check-label" for="exampleRadios1">
+		  	<label class="form-check-label" for="sexopessoa">
 		    	Masculino
 		  	</label>
 			</div>
@@ -98,7 +98,7 @@
 	  			{else}
 	  				<input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="F">
 	  			{/if}
-				<label class="form-check-label" for="exampleRadios2">
+				<label class="form-check-label" for="sexopessoa">
 		    		Feminino
 		  		</label>
 			</div>
@@ -115,9 +115,9 @@
 			  	{if="$dadosP['sexopessoa'] === 'M'"}
 				  	<select name="estado_civil" id="estado_civil" required>
 				  		{if="$dadosP['estado_civil'] === ''"}
-				  			<option selected>Selecione</option>
+				  			<option value="" selected>Selecione</option>
 				  		{else}
-				  			<option >Selecione</option>
+				  			<option value="">Selecione</option>
 				  		{/if}
 				  		{if="$dadosP['estado_civil'] === 'Solteiro' or $dadosP['estado_civil'] === 'Solteira'"}
 				  			<option value="Solteiro" selected>Solteiro</option>
@@ -138,9 +138,9 @@
 			  	{elseif="$dadosP['sexopessoa'] === 'F'"}
 				  	<select name="estado_civil" id="estado_civil" required>
 				  		{if="$dadosP['estado_civil'] === ''"}
-				  			<option selected>Selecione</option>
+				  			<option value="" selected>Selecione</option>
 				  		{else}
-				  			<option >Selecione</option>
+				  			<option value="">Selecione</option>
 				  		{/if}
 				  		{if="$dadosP['estado_civil'] === 'Solteira' or $dadosP['estado_civil'] === 'Solteiro'"}
 				  			<option value="Solteira" selected>Solteira</option>
@@ -168,7 +168,7 @@
 	{else}
 
 	<div class="cad-dados-pessoas">
-		<form role="form" action="/dados-pessoais" method="post">
+		<form action="/dados-pessoais" method="post">
 		  	<div class="form-group">
 			    <label for="nomepessoa">Nome</label>
 			    <input type="text" class="form-control" id="nomepessoa" name="nomepessoa" required autofocus>
@@ -179,13 +179,13 @@
 		  	</div>
 		  	<div class="form-check">
 	  			<input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="M">
-		  	<label class="form-check-label" for="exampleRadios1">
+		  	<label class="form-check-label" for="sexopessoa">
 		    	Masculino
 		  	</label>
 			</div>
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="sexopessoa" id="sexopessoa" value="F">
-				<label class="form-check-label" for="exampleRadios2">
+				<label class="form-check-label" for="sexopessoa">
 		    		Feminino
 		  		</label>
 			</div>

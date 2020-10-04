@@ -311,14 +311,19 @@ header #menu2 .dropdown-meu:hover .sub-menu li a {
 .breadCrumb {
     float: right;
 }
-
+.breadCrumb a {
+    color: #000000;
+    margin: 5px;
+}
 .breadCrumb span p {
     color: #000;
     margin: 6px;
 }
-
 .breadCrumb span {
     display: flex;
+}
+.breadCrumb .title-page {
+    margin: 5px;
 }
 .breadCrumb svg {
     margin-top: 11px;
@@ -626,3 +631,123 @@ header #menu2 a:hover {
     padding: 9px 14px;
 }
 /*Home - InÃƒÂ­cio*/
+
+
+/*Inicio Como funciona*/
+.card-dark img {
+    width: 100%;
+}
+.card-dark p {
+    margin: 107px 50px;
+}
+.card-dark {
+    background: #e6e6e6;
+    padding: 10px;
+}
+.card-white img {
+    width: 100%;
+}
+.card-white p {
+    margin: 107px 50px;
+}
+.como-funciona .img-card img {
+    width: 60%;
+}
+.como-funciona .title h2 {
+    font-size: 34px;
+    margin-top: 15px;
+    color: #1a4780;
+    font-weight: bold;
+}
+.como-funciona p {
+    font-size: 19px;
+    margin: 5px;
+}
+/*Fim Como funciona*/
+
+
+/*Inicio Mobile*/
+@media only screen and (max-width: 768px){
+    .col-m-12 {
+        width: 100% !important;
+        max-width: 100%!important;
+    }
+    .row {
+        max-width: 100%!important;
+    }
+    .cad-login form{
+        width: 74%;
+    }
+    .bg-home {
+        height: 238px;
+    }
+    .cad-cadastro form{
+        width: 74%!important;
+    }
+    .breadCrumb{
+        width: 100%!important;
+        float: right;
+    }
+    .min-hab, .for-expe{
+        width: auto!important;
+        display: block!important;
+    }
+    .habilidade-item p, .habilidade-item a{
+        margin-right: 51px;
+    }
+    .mobile-flex{
+        display: flex!important;
+        width: 35%;
+    }
+    .dados-pessoais-1 h2{
+        font-size: 15px;
+    }
+    .dados-pessoais-1 p {
+        font-size: 10px;
+    }
+    .page-1{
+        display: none;
+    }
+}
+@media only screen and (max-width: 576px){
+    .col-m-12 {
+        width: 100% !important;
+    }
+    .row {
+        max-width: 100%!important;
+    }
+    .cad-login form{
+        width: 74%;
+    }
+    .bg-home {
+        height: 238px;
+    }
+    .cad-cadastro form{
+        width: 74%!important;
+    }
+    .breadCrumb{
+        width: 100%!important;
+        float: right;
+    }
+    .min-hab, .for-expe{
+        width: auto!important;
+        display: block!important;
+    }
+    .habilidade-item p, .habilidade-item a{
+        margin-right: 51px;
+    }
+    .mobile-flex{
+        display: flex!important;
+        width: 35%;
+    }
+    .dados-pessoais-1 h2{
+        font-size: 15px;
+    }
+    .dados-pessoais-1 p {
+        font-size: 10px;
+    }
+    .page-1{
+        display: none;
+    }
+}
+/*Fim Mobile*/

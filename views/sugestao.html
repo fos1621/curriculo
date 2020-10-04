@@ -13,7 +13,7 @@
 	<div class="wrapper">
 		<div class="bread contato">
 			<div class="breadCrumb">
-				<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/" title="Home"><p>Home</p></a> <i class="fa fa-angle-double-right"></i> <p>Sugestão</p></span>
+				<span> <i class="fa fa-home"></i> <a rel="nofollow" href="/" title="Home">Home</a> <i class="fa fa-angle-double-right"></i> <span class="title-page">Sugestão</span></span>
 			</div>
 			<div class="bread-title">
 				<h1>Sugestão</h1>
@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="cad-login col-m-12">
-		<form role="form" action="/sugestao" method="post">
+		<form action="/sugestao" method="post">
 		  <div class="form-group">
 		    <label for="nome_pessoa">Nome</label>
 		    <input type="text" class="form-control" id="nome_pessoa" name="nome_pessoa" required autofocus>

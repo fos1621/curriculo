@@ -10,6 +10,9 @@ $app->get("/dados-pessoais", function(){
 
 	Login::verifyLogin(false);
 
+	$displayNone = '';
+	$displayBlock = '';
+
 	$pessoa = new DadosPessoa();
 
 	$dadosPessoa = DadosPessoa::procuraPessoa();
@@ -23,6 +26,22 @@ $app->get("/dados-pessoais", function(){
 	$getMessageDadosPessoaisErrorSexoPessoa = Message::getMessageErrorPessoa();
 	$getMessageDadosPessoaisErrorEstadoCivil = Message::getMessageErrorPessoa();
 
+	if($dadosPessoa['sexopessoa'] === 'F'){
+		$displayBlockF = 'block';
+		$displayNoneF = 'none';
+	}else{
+		$displayBlockF = 'none';
+		$displayNoneF = 'block';
+	}
+
+	if($dadosPessoa['sexopessoa'] === 'M'){
+		$displayBlockM = 'block';
+		$displayNoneM = 'none';
+	}else{
+		$displayBlockM = 'none';
+		$displayNoneM = 'block';
+	}
+
 	$page = new Page();
 
 	$page->setTpl('/dados-pessoais', [
@@ -35,7 +54,9 @@ $app->get("/dados-pessoais", function(){
 		'getMessageDadosPessoaisErrorNome'=>$getMessageDadosPessoaisErrorNome,
 		'getMessageDadosPessoaisErrorSobreNome'=>$getMessageDadosPessoaisErrorSobreNome,
 		'getMessageDadosPessoaisErrorSexoPessoa'=>$getMessageDadosPessoaisErrorSexoPessoa,
-		'getMessageDadosPessoaisErrorEstadoCivil'=>$getMessageDadosPessoaisErrorEstadoCivil
+		'getMessageDadosPessoaisErrorEstadoCivil'=>$getMessageDadosPessoaisErrorEstadoCivil,
+		'displayBlock'=>$displayBlock,
+		'displayNone'=>$displayNone
 	]);
 
 });

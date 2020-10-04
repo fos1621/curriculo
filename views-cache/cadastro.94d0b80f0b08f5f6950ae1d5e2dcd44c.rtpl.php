@@ -53,7 +53,7 @@
 	
 
 	<div class="cad-cadastro">
-		<form role="form" action="/cadastro" method="post">
+		<form action="/cadastro" method="post">
 		  <div class="form-group">
 		    <label for="nomeusuario">Nome de usuário</label>
 		    <input type="text" class="form-control" id="nomeusuario" name="nomeusuario"  autofocus>

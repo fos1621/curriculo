@@ -54,7 +54,7 @@
 
 
 	<div class="cad-login col-m-12">
-		<form role="form" action="/login" method="post">
+		<form action="/login" method="post">
 		  <div class="form-group">
 		    <label for="emailusuario">Email ou Usuário</label>
 		    <input type="text" class="form-control" id="emailusuario" name="emailusuario" required autofocus>
